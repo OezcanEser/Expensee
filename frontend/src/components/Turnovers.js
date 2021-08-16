@@ -2,15 +2,15 @@ import { useState } from "react";
 
 const Turnovers = () => {
     const [options, setOptions] = useState({
-        Kategorie: "Kategorie",
-        Einkommen: "Einkommen",
-        Lebensmittel: "Lebensmittel",
-        Shopping: "Shopping",
-        Wohnung: "Wohnung",
-        Restaurant: "Restaurant"
+        kategorie: "kategorie",
+        einkommen: "einkommen",
+        lebensmittel: "lebensmittel",
+        shopping: "shopping",
+        wohnung: "wohnung",
+        restaurant: "restaurant"
     })
     const [data, setData] = useState("")
-    console.log(data)
+    console.log(options, setOptions, data)
     return (
         <>
             <h1>Umsätze</h1>

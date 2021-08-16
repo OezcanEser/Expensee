@@ -15,6 +15,7 @@ const App = () => {
     return (
         <Router>
             <div>
+                <a href='/user/auth/google'> Login Test</a>
                 <Switch>
                     <Route path="/" exact component={Login} />
                     <Route path="/home" component={Home} />
