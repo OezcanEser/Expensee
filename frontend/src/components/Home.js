@@ -11,9 +11,11 @@ const Home = () => {
     return (<>
         <section>
             <h4>Letzte Transaktionen</h4>
-            {moneyData.map(money => <ul key={money.id}>
-                <li>{money}</li>
-            </ul>)}
+            <ul>
+                {moneyData.map(money => <li key={money.id}>
+                    {money}
+                </li>)}
+            </ul>
         </section>
         <Footer />
     </>);
