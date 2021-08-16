@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/OezcanEser/Expensse#readme",
   "dependencies": {
+    "concurrently": "^6.2.1",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
