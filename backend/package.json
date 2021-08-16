@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js", 
-    "server": "nodemon index.js", 
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -21,8 +21,13 @@
   },
   "homepage": "https://github.com/OezcanEser/Expensse#readme",
   "dependencies": {
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
