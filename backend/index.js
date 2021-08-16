@@ -2,24 +2,26 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
+const passport = require('passport');
 const ErrorHandler = require('./utils/error');
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+require('./config/passport_setup');
 
 const app = express();
-
-app.use(express.json());
-app.use(morgan('dev'));
-app.use(cors());
 
 app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: ['sodfhaodfbnadofbnadoöfbnafojbnFB'],
+    keys: [process.env.COOKIE_KEY],
   })
 );
-
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+app.use(express.json());
+app.use(morgan('dev'));
+app.use(cors());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //routes
 app.use('/user', require('./routes/user'));
