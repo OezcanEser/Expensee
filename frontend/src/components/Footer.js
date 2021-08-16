@@ -13,7 +13,7 @@ const Footer = () => {
                     </li>
                     <li>
                         <NavLink 
-                            activeStyle={{ fill: '#EFBC2C'}} to="/"> 
+                            activeStyle={{ fill: '#EFBC2C'}} to="/home"> 
                             <img src="./img/home_button.svg" alt="home" />
                         </NavLink>
                     </li>
@@ -28,5 +28,5 @@ const Footer = () => {
         </footer>
      );
 }
- 
+
 export default Footer;
