@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap');
+
+/* font-family: 'Lato', sans-serif; */
+
+$main-color-bg: #2B2D5B;
+$main-color-bg-dark: #232450;
+$main-color-white: #FFFFFF;
+$main-color-yellow: #EFB722;
+$main-color-grey: #95989A;
+$main-color-lila: #515FEB;
+$main-color-green: #33D27B;
+$color-transaction-green: #00FF00;
+$color-transaction-red: #F63535;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    background: $main-color-bg;
+}
+
+/* -------Footer----------------- */
+.footer {
+    nav ul {
+        list-style-type: none;
+    }
+}
