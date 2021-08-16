@@ -12,21 +12,21 @@ import Login from './components/Login';
 import Turnovers from './components/Turnovers';
 
 const App = () => {
-    return ( 
+    return (
         <Router>
-        <div>
-        <a href='/user/auth/google'> Login Test</a>
-            <Switch>
-                <Route path="/" exact component={Login} />
-                <Route path="/home" component={Home} />
-                <Route path="/header" component={Header} />
-                <Route path="/charts" component={Charts} />
-                <Route path="/turnovers" component={Turnovers} />
-                <Route path="/footer" component={Footer} />
-            </Switch>
-        </div>
+            <div>
+                <a href='/user/auth/google'> Login Test</a>
+                <Switch>
+                    <Route path="/" exact component={Login} />
+                    <Route path="/home" component={Home} />
+                    <Route path="/header" component={Header} />
+                    <Route path="/charts" component={Charts} />
+                    <Route path="/turnovers" component={Turnovers} />
+                    <Route path="/footer" component={Footer} />
+                </Switch>
+            </div>
         </Router>
-     );
+    );
 }
- 
+
 export default App;
