@@ -12,7 +12,7 @@ const Turnovers = () => {
     const [data, setData] = useState("")
     console.log(options, setOptions, data)
     return (
-        <>
+        <section>
             <h1>Umsätze</h1>
             <form>
                 <select onChange={event => setData(event.target.value)}>
@@ -28,7 +28,7 @@ const Turnovers = () => {
                 <input type="date" name="" id="" placeholder="Datum" />
                 <input type="submit" value="Abschicken" />
             </form>
-        </>);
+        </section>);
 }
 
 export default Turnovers;
