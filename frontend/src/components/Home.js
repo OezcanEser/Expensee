@@ -12,9 +12,9 @@ const Home = () => {
         <section>
             <h4>Letzte Transaktionen</h4>
             <ul>
-                {moneyData.map(money => <li key={money.id}>
+                {/* {moneyData.map(money => <li key={money.id}>
                     {money}
-                </li>)}
+                </li>)} */}
             </ul>
         </section>
         <Footer />

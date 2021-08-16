@@ -18,8 +18,8 @@ const Footer = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink
-                            style={{ fill: '#EFBC2C' }} to="/charts">
+                        <NavLink className="charts"
+                            /* style={{ color: '#EFBC2C' }} */ to="/charts"> Test
                             <img src="./img/charts.svg" alt="charts" />
                         </NavLink>
                     </li>

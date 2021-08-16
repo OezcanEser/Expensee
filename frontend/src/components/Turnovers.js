@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "./Footer";
 
 const Turnovers = () => {
     const [options, setOptions] = useState({
@@ -28,6 +29,7 @@ const Turnovers = () => {
                 <input type="date" name="" id="" placeholder="Datum" />
                 <input type="submit" value="Abschicken" />
             </form>
+            <Footer/>
         </>);
 }
 
