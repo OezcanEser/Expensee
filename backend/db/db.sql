@@ -8,10 +8,17 @@ create table wallets (
     category VARCHAR(100) NOT NULL,
     description VARCHAR(200) NOT NULL,
     price real NOT NULL,
-    created_at DATE NOT NULL,
+    created_at VARCHAR(50) NOT NULL,
+    time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     user_id integer NOT NULL references users(id) on delete cascade
 );
-insert into wallets (category, description, price, created_at, user_id)
+insert into wallets (
+        category,
+        description,
+        price,
+        created_at,
+        user_id
+    )
 values (
         'Sonstiges',
         'test description',
