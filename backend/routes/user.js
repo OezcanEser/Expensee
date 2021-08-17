@@ -9,7 +9,7 @@ router.route('/auth/google').get(
 );
 
 router
-  .route('/google/redirect')
+  .route('/auth/google/redirect')
   .get(passport.authenticate('google'), (req, res) => {
     console.log('Login success', req.user);
   });
