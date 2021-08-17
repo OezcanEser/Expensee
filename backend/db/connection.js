@@ -1,4 +1,5 @@
 const pool = require('./pool');
+const ErrorHandler = require('../utils/error');
 module.exports = {
   query(queryText, params) {
     return new Promise((resolve, reject) => {
@@ -8,7 +9,7 @@ module.exports = {
           resolve(res);
         })
         .catch((err) => {
-          reject(err);
+          reject(new ErrorHandler(err, 500));
         });
     });
   },

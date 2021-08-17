@@ -28,6 +28,7 @@ app.use(passport.session());
 
 //routes
 app.use('/user', require('./routes/user'));
+app.use('/input', require('./routes/inputs'));
 
 //if route not exist
 app.use((req, res, next) => {
