@@ -19,7 +19,7 @@ const Footer = () => {
                     </li>
                     <li>
                         <NavLink className="charts"
-                            /* style={{ color: '#EFBC2C' }} */ to="/charts"> Test
+                            /* style={{ color: '#EFBC2C' }} */ to="/charts">
                             <img src="./img/charts.svg" alt="charts" />
                         </NavLink>
                     </li>

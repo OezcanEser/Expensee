@@ -22,6 +22,84 @@ body {
     background: $main-color-bg;
 }
 
+/* -------Header--------------- */
+
+header {
+    
+    nav {
+        /* height: 100vh; */
+        height: 12vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        box-shadow: 3px 3px 3px 3px $main-color-bg-dark;
+       /*  border-right: 2px solid #ffffff; */
+        background: $main-color-bg;
+        /* display: flex;
+        flex-direction: row; */
+        z-index: 1;
+        span {
+            margin-left: 10px;
+        }
+        a {
+            color: $main-color-white;
+            text-decoration: none;
+            /* display: flex;
+            align-items: center; */
+            padding: 5px;
+        }
+        ul {
+            margin-left: 5px;
+            li {
+                list-style: none;
+                padding: 10px;
+            }
+        }
+    }
+    .open nav {
+        height: 100vh;
+        background: $main-color-bg;
+    }
+    .burgerMenu {
+        display: flex;
+        flex-flow: column nowrap;
+        flex-grow: .5;
+        margin: 15px 15px 0 15px;
+   /*  align-items: flex-end; */
+        div {
+            margin-top: 10px;
+            width: 2rem;
+            height: 0.25rem;
+            background-color: $main-color-white;
+            border-radius: 10px;
+        }
+    }
+    .open div div:nth-of-type(1) {
+        transform: rotate(45deg);
+        position: absolute;
+        top: 10px;
+        margin-top: 25px;
+        width: 2.5rem;
+    }
+    .open div div:nth-of-type(2) {
+        opacity: 0;
+    }
+    .open div div:nth-of-type(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 10px;
+        margin-top: 25px;
+        width: 2.5rem;
+    }
+    .open .burgerMenu {
+        margin-bottom: 29px;
+    }
+}
+
+
+
+
 
 
 /* -------Footer----------------- */

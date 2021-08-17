@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Footer from "./Footer"
+import Header from "./Header";
 
 const Home = () => {
     const [moneyData, setMoneyData] = useState({
@@ -10,6 +11,7 @@ const Home = () => {
     console.log(setMoneyData)
     return (<>
         <section>
+            <Header/>
             <h4>Letzte Transaktionen</h4>
             <ul>
                 {/* {moneyData.map(money => <li key={money.id}>

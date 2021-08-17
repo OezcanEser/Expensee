@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios"
+import Header from "./Header";
+import Footer from "./Footer";
 
 const optionData = ["Kategorie", "Einkommen", "Lebensmittel", "Shopping", "Wohnung", "Restaurant"];
 
@@ -29,6 +31,7 @@ const Turnovers = () => {
 
     return (
         <section>
+            <Header/>
             <h1>Umsätze</h1>
             <form>
                 <select onChange={(event) => setData(event.target.value)}>{valueChoice}</select>
@@ -37,6 +40,7 @@ const Turnovers = () => {
                 <input type="date" name="date" placeholder="Datum" value={inputs.date} onChange={handleInputs} />
                 <input type="submit" value="Abschicken" onClick={newTransfer} />
             </form>
+            <Footer/>
         </section>
     );
 };
