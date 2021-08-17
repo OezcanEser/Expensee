@@ -4,9 +4,11 @@ const cors = require('cors');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const ErrorHandler = require('./utils/error');
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
+//passport auth setup
 require('./config/passport_setup');
 
 const app = express();
