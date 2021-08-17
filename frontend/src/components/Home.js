@@ -29,15 +29,16 @@ const Home = () => {
     }])
     console.log(setPriceData)
     return (<>
+        <Header />
         <section>
-            <Header />
             <h4>Letzte Transaktionen</h4>
             <p>Show full</p>
             <ul>
-                {/* {moneyData.map(money => <li key={money.id}>
-                    {money}
-                </li>)} */}
-                {priceData.map((price) => <li key={price.id}>{price}</li>)}
+                {priceData.map((transfer) => <li key={transfer.id}>
+                    <h4>{transfer.description}</h4>
+                    <p>{transfer.created_at}</p>
+                    <p>{transfer.price}</p>
+                </li>)}
             </ul>
             <button disabled="disabled">Mehr Transaktionen</button>
         </section>
