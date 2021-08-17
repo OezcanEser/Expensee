@@ -1,17 +1,18 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios"
 
-const optionData = ["Kategorie", "Einkommen", "Lebensmittel", "Shopping", "Wohnung", "Restaurant"];
+const optionData = ["Kategorie", "Einkommen", "Lebensmittel", "Shopping", "Wohnung", "Restaurant", "Sonstiges"];
 
 const Turnovers = () => {
     const [data, setData] = useState("");
-    const [inputs, setInputs] = useState({ description: "", money: "", date: "" })
-    console.log(data, inputs)
+    const [inputs, setInputs] = useState({ category: "", description: "", price: "", date: "" })
 
     const handleInputs = (event) => {
         setInputs(prev => {
             return {
                 ...prev,
+                category: data,
                 [event.target.name]: event.target.value
             }
         })
@@ -29,12 +30,21 @@ const Turnovers = () => {
 
     return (
         <section>
+            <Link to="/home"><img src="../img/shape.png" alt="#" /></Link>
             <h1>Umsätze</h1>
+            <div id="success">
+                <img src="../img/sucess.png" alt="" />
+                <h3><span>Erfolgreich</span><br />eingetragen!</h3>
+                <p><span>Datum</span><br />{data.date}</p>
+                <p><span>Zeit</span><br />{data}</p>
+                <p><span>Kategorie</span><br />{data.category}</p>
+                <h3><span>Summe</span><br />{data.price}</h3>
+            </div>
             <form>
-                <select onChange={(event) => setData(event.target.value)}>{valueChoice}</select>
-                <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} />
-                <input type="number" name="money" placeholder="Geldbetrag" value={inputs.money} onChange={handleInputs} />
-                <input type="date" name="date" placeholder="Datum" value={inputs.date} onChange={handleInputs} />
+                <select onChange={(event) => setData(event.target.value)} required>{valueChoice}</select>
+                <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} required />
+                <input type="number" name="price" placeholder="Geldbetrag" value={inputs.price} onChange={handleInputs} required />
+                <input type="date" name="date" placeholder="Datum" value={inputs.date} onChange={handleInputs} required />
                 <input type="submit" value="Abschicken" onClick={newTransfer} />
             </form>
         </section>
