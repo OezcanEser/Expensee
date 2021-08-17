@@ -1,4 +1,6 @@
 import { Doughnut } from 'react-chartjs-2';
+import Footer from "./Footer"
+import Header from "./Header";
 
 const Charts = () => {
     const data = {
@@ -18,7 +20,9 @@ const Charts = () => {
 
     return (
         <section>
+            <Header />
             <Doughnut data={data} />
+            <Footer />
         </section>
     );
 }

@@ -3,16 +3,17 @@ const ErrorHandler = require('../utils/error');
 const asyncHandler = require('../utils/asyncHandler');
 const { checkInput } = require('../middleware/checkData');
 
-const create = asyncHandler(async (req, res, next) => {
+const createInput = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
   let userId = 1;
-  let checkInputData = checkInput(req.body.data);
+  let checkInputData = checkInput(req.body);
 
   if (!checkInputData) {
     return next(new ErrorHandler('Please provide all required data!', 400));
   }
 
   let dataToSave = {
-    ...req.body.data,
+    ...req.body,
   };
 
   if (
@@ -27,7 +28,7 @@ const create = asyncHandler(async (req, res, next) => {
   let { category, price, description, created_at } = dataToSave;
 
   let { rows } = await db.query(
-    'insert into wallets (category, description,price created_at) values ($1, $2, $3, $4, $5) returning *',
+    'insert into wallets (category, description, price, created_at,user_id) values ($1, $2, $3, $4, $5) returning *',
     [category, description, price, created_at, userId]
   );
 
@@ -37,6 +38,25 @@ const create = asyncHandler(async (req, res, next) => {
   });
 });
 
-module.export = {
-  create,
+const deleteInput = asyncHandler(async (req, res, next) => {
+  let userId = 1;
+  let idToDelete = req.body.id;
+
+  if (!idToDelete) {
+    return next(new ErrorHandler('Please provide a valid id!', 403));
+  }
+
+  let { rows } = await db.query(
+    'delete from wallets where user_id= $1 and id=$2',
+    [userId, idToDelete]
+  );
+
+  res.status(200).json({
+    success: true,
+  });
+});
+
+module.exports = {
+  createInput,
+  deleteInput,
 };

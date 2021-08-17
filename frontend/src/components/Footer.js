@@ -12,14 +12,14 @@ const Footer = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink
-                            activeStyle={{ fill: '#EFBC2C' }} to="/">
+                        <NavLink 
+                            activeStyle={{ fill: '#EFBC2C'}} to="/home"> 
                             <img src="./img/home_button.svg" alt="home" />
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink
-                            style={{ fill: '#EFBC2C' }} to="/charts">
+                        <NavLink className="charts"
+                            /* style={{ color: '#EFBC2C' }} */ to="/charts">
                             <img src="./img/charts.svg" alt="charts" />
                         </NavLink>
                     </li>

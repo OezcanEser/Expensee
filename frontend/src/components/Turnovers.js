@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios"
+import Header from "./Header";
+import Footer from "./Footer";
 
 const optionData = ["Kategorie", "Einkommen", "Lebensmittel", "Shopping", "Wohnung", "Restaurant", "Sonstiges"];
 
@@ -30,7 +32,7 @@ const Turnovers = () => {
 
     return (
         <section>
-            <Link to="/home"><img src="../img/shape.png" alt="#" /></Link>
+            <Link to="/home"><img src="../img/shape.png" alt="#" /></Link> 
             <h1>Umsätze</h1>
             <div id="success">
                 <img src="../img/sucess.png" alt="" />
@@ -47,6 +49,7 @@ const Turnovers = () => {
                 <input type="created_at" name="created_at" placeholder="Datum" value={inputs.created_at} onChange={handleInputs} required />
                 <input type="submit" value="Abschicken" onClick={newTransfer} />
             </form>
+            <Footer/>
         </section>
     );
 };
