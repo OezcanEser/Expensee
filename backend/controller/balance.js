@@ -53,9 +53,9 @@ const getSummary = asyncHandler(async (req, res, next) => {
   if (rows.length !== 0) {
     obj.einkommen = calculateBalance('Einnahmen', rows);
     obj.ausgaben = calculateBalance('Ausgaben', rows);
-    obj.sonstiges = calculateBalance('Sonstiges', rows);
+    obj.sonstiges = Math.abs(calculateBalance('Sonstiges', rows));
 
-    obj.sparen = obj.einkommen - obj.ausgaben * -1 - obj.sonstiges;
+    obj.sparen = obj.einkommen + obj.ausgaben;
   }
 
   res.status(200).json({
