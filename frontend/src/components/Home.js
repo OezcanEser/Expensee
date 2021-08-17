@@ -18,7 +18,7 @@ const Home = () => {
                 {/* {moneyData.map(money => <li key={money.id}>
                     {money}
                 </li>)} */}
-                {priceData.map((price) => <li key={price.id}>{price}</li>)}
+                {/* {priceData.map((price) => <li key={price.id}>{price}</li>)} */}
             </ul>
             <button disabled="disabled">Mehr Transaktionen</button>
         </section>

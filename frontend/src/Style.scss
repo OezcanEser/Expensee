@@ -25,11 +25,25 @@ body {
 /* -------Header--------------- */
 
 header {
-    
     nav {
+        position: relative;
+        background: $main-color-bg;
+        transition: left 1s;
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+    }
+    section {
         /* height: 100vh; */
         height: 12vh;
-        width: 100%;
+        width: 80%;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -57,16 +71,26 @@ header {
             }
         }
     }
-    .open nav {
+    /* .open nav {
         height: 100vh;
         background: $main-color-bg;
-    }
+    } */
     .burgerMenu {
-        display: flex;
+        /* display: flex;
         flex-flow: column nowrap;
         flex-grow: .5;
-        margin: 15px 15px 0 15px;
+        margin: 15px 15px 0 15px; */
    /*  align-items: flex-end; */
+        height: 20px;
+        width: 30px;
+        position: fixed;
+        top: 3vmin;
+        left: 3vmin;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 9999;
+   
         div {
             margin-top: 10px;
             width: 2rem;
@@ -94,6 +118,12 @@ header {
     }
     .open .burgerMenu {
         margin-bottom: 29px;
+    }
+    .open {
+        left: 0;
+    }
+    .closeNav {
+        left: -100%;
     }
 }
 
