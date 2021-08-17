@@ -3,12 +3,13 @@ import Footer from "./Footer"
 import Header from "./Header";
 
 const Home = () => {
-    const [moneyData, setMoneyData] = useState({
+    const [priceData, setPriceData] = useState({
         description: "description",
         date: "date",
-        money: "money"
+        time: "time",
+        price: "price"
     })
-    console.log(setMoneyData)
+    console.log(setPriceData)
     return (<>
         <section>
             <Header/>
@@ -17,7 +18,9 @@ const Home = () => {
                 {/* {moneyData.map(money => <li key={money.id}>
                     {money}
                 </li>)} */}
+                {priceData.map((price) => <li key={price.id}>{price}</li>)}
             </ul>
+            <button disabled="disabled">Mehr Transaktionen</button>
         </section>
         <Footer />
     </>);

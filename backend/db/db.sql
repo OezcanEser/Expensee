@@ -3,19 +3,19 @@ crate table users(
     username VARCHAR(100) NOT NULL,
     googleId VARCHAR(100) NOT NULL,
 );
-create table einnahmen(
+create table wallets (
     id Serial PRIMARY KEY,
     category VARCHAR(100) NOT NULL,
     description VARCHAR(200) NOT NULL,
-    price numeric NOT NULL,
-    date DATE NOT NULL,
+    price real NOT NULL,
+    created_at DATE NOT NULL,
     user_id integer NOT NULL references users(id) on delete cascade
 );
-create table ausgaben(
-    id Serial PRIMARY KEY,
-    category VARCHAR(100) NOT NULL,
-    description VARCHAR(200) NOT NULL,
-    price numeric NOT NULL,
-    date DATE NOT NULL,
-    user_id integer NOT NULL references users(id) on delete cascade
-)
+insert into wallets (category, description, price, created_at, user_id)
+values (
+        'Sonstiges',
+        'test description',
+        200,
+        '2020-10-10',
+        1
+    );
