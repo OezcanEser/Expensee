@@ -17,6 +17,7 @@ app.use(
     keys: [process.env.COOKIE_KEY],
   })
 );
+
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
