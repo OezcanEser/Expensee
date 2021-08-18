@@ -36,7 +36,6 @@ const Turnovers = () => {
     }
 
     //Modal
-    
   
     const handleClose = () => {
         setOpen(false);
@@ -84,7 +83,6 @@ const Turnovers = () => {
                             <p><span>Kategorie</span><br />{data.category}</p>
                             <p><span>Summe</span><br />{data.price}</p>
                         </section>
-                        
                     </div>
                     </Modal>
                 </section>
