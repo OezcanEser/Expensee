@@ -40,7 +40,7 @@ const createInput = asyncHandler(async (req, res, next) => {
 
 const deleteInput = asyncHandler(async (req, res, next) => {
   let userId = 1;
-  let idToDelete = req.body.id;
+  let idToDelete = req.params.id;
 
   if (!idToDelete) {
     return next(new ErrorHandler('Please provide a valid id!', 403));

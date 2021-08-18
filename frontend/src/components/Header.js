@@ -1,19 +1,26 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from 'react'
 
-const Header = () => {
+const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef()
     useOnClickOutside(ref, () => setIsOpen(false))
     return (
         <header>
             <section className="menu">
-                <div className="burgerMenu" onClick={() => setIsOpen(!isOpen)}>
-                    <div className="line"></div>
-                    <div className="line"></div>
-                    <div className="line"></div>
+                <div className="headBurger">
+                    <div className="burgerMenu" onClick={() => setIsOpen(!isOpen)}>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </div>
+                    <h1>{props.title}</h1>
                 </div>
                 <nav className={isOpen ? "open" : "closeNav"} ref={ref}>
+                    <div className="cross" onClick={() => setIsOpen(false)}>
+                        <div className="crossline"></div>
+                        <div className="crossline"></div>
+                    </div>
                     <ul>
                         <li> 
                             <Link to="/home" onClick={() => setIsOpen(false)}> Home</Link>
