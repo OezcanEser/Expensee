@@ -60,6 +60,7 @@ const showAll = asyncHandler(async (req, res, next) => {
 });
 
 const getSummary = asyncHandler(async (req, res, next) => {
+  // select distinct category, sum(price) as price from wallets where user_id=1 group by category;
   let userId = 1;
   let { rows } = await db.query('select * from wallets where user_id = $1', [
     userId,
