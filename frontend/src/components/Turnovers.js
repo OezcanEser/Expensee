@@ -4,7 +4,7 @@ import axios from "axios"
 import Header from "./Header";
 import Footer from "./Footer";
 
-const optionData = ["Kategorie", "Einkommen", "Lebensmittel", "Shopping", "Wohnung", "Restaurant", "Sonstiges"];
+const optionData = ["Kategorie", "Einnahmen", "Ausgaben", "Sonstiges"];
 
 const Turnovers = () => {
     const [data, setData] = useState("");
@@ -49,7 +49,7 @@ const Turnovers = () => {
                         <select onChange={(event) => setData(event.target.value)} required>{valueChoice}</select>
                         <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} required />
                         <input type="number" name="price" placeholder="Geldbetrag" value={inputs.price} onChange={handleInputs} required />
-                        <input type="created_at" name="created_at" placeholder="Datum" value={inputs.created_at} onChange={handleInputs} required />
+                        <input type="date" name="created_at" placeholder="Datum" value={inputs.created_at} onChange={handleInputs} required />
                         <input type="submit" value="Abschicken" onClick={newTransfer} />
                     </form>
                 </section>

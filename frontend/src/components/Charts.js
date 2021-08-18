@@ -1,10 +1,15 @@
-import { Doughnut } from 'react-chartjs-2';
+import { Pie, defaults } from 'react-chartjs-2'
 import Footer from "./Footer"
-import Header from "./Header";
+import Header from "./Header"
+
+defaults.plugins.tooltip.enabled = false
+defaults.plugins.legend.position = "bottom"
 
 const Charts = () => {
-    const data = {
+    const setPie = {
+        labels: ["Einnahmen", "Ausgaben", "Sparen", "Sonstiges"],
         datasets: [{
+            label: "# of votes",
             data: [12, 19, 3, 5],
             backgroundColor: [
                 "rgba(246, 53, 53, 1)",
@@ -13,65 +18,32 @@ const Charts = () => {
                 "rgba(149, 152, 154, 1)",
             ],
             borderWidth: 0,
-            label: "Was ist das?",
+        }, {
+            labels: ["Total"],
+            label: "Total",
+            data: [3450],
+            backgroundColor: "rgba(255, 255, 255, 1)",
+            boxShadow: "10px 10px 10px rgba(000,000,000)"
         }],
-        labels: ["Einkommen", "Ausgaben", "Sparen", "Sonstiges"],
+        options: {
+            legend: {
+                labels: {
+                    color: "rgba(255, 255, 255, 1)",
+                    fontSize: "18"
+                }
+            }
+        }
     }
 
-    //  / get > response {  user: req.user, success: true, endOfLength, data: rows -> Array,}
-    // /summary get > response {data: obj,}
-
-    //     "data": {
-    //         "einkommen": {
-    //             "costenSummary": 400,
-    //             "showCosten": [
-    //                 {
-    //                     "description": "Sonstiges test2",
-    //                     "price": 200
-    //                 },
-    //                 {
-    //                     "description": "einnahmen test2",
-    //                     "price": 200
-    //                 }
-    //             ]
-    //         },
-    //         "ausgaben": {
-    //             "costenSummary": -400,
-    //             "showCosten": [
-    //                 {
-    //                     "description": "ausgaben test1",
-    //                     "price": -200
-    //                 },
-    //                 {
-    //                     "description": "ausgaben test2",
-    //                     "price": -200
-    //                 }
-    //             ]
-    //         },
-    //         "sparen": -400,
-    //         "sonstiges": {
-    //             "costenSummary": -400,
-    //             "showCosten": [
-    //                 {
-    //                     "description": "Sonstiges test1",
-    //                     "price": -200
-    //                 },
-    //                 {
-    //                     "description": "Sonstiges test2",
-    //                     "price": -200
-    //                 }
-    //             ]
-    //         }
-    //     }
-    // }
-
-
-    return (
-        <section>
-            <Header />
-            <Doughnut data={data} />
-            <Footer />
-        </section>
+    return (<>
+        <Header />
+        <main>
+            <section>
+                <Pie data={setPie} />
+            </section>
+        </main>
+        <Footer />
+    </>
     );
 }
 
