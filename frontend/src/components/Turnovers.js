@@ -32,7 +32,7 @@ const Turnovers = () => {
 
     return (
         <>
-            <Header />
+            <Header title="Wallet"/>
             <main>
                 <section>
                     <Link to="/home"><img src="../img/shape.png" alt="#" /></Link>

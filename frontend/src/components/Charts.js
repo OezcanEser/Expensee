@@ -68,7 +68,7 @@ const Charts = () => {
 
     return (
         <section>
-            <Header />
+            <Header title="Statistik"/>
             <Doughnut data={data} />
             <Footer />
         </section>
