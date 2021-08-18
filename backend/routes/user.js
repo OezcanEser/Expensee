@@ -18,3 +18,7 @@ router
 router.route('/logout').get(logoutUser);
 
 module.exports = router;
+
+// user route:
+// login get http://127.0.0.1:5000/user/auth/google > response {  success: true, message: 'User is Logged in',}
+// logout get http://127.0.0.1:5000/user/logout > response {  success: true, user: null}
