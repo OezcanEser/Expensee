@@ -29,6 +29,14 @@ const Turnovers = () => {
     });
   };
 
+  let valueChoice = optionData.map((element) => {
+    return (
+      <option key={element} value={element}>
+        {element}
+      </option>
+    );
+  });
+
   const newTransfer = (event) => {
     event.preventDefault();
     axios
