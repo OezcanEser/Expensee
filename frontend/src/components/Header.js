@@ -7,36 +7,28 @@ const Header = () => {
     useOnClickOutside(ref, () => setIsOpen(false))
     return (
         <header>
-            <section>
-            <div className="burgerMenu" onClick={() => setIsOpen(!isOpen)}>
-            <div />
-            <div />
-            <div />
-         </div>
-            <nav className={isOpen ? "open" : "closeNav"} ref={ref}>
-                <ul>
-                    <li> 
-                        <Link to="/home" onClick={() => setIsOpen(false)}> Home
-                            {/* <span style={{ display: isOpen ? "inline-block" : "none" }}>Home</span> */}
-                        </Link>
-                    </li>
-                    <li> 
-                        <Link to="/turnovers" onClick={() => setIsOpen(false)}> Wallet
-                            {/* <span style={{ display: isOpen ? "inline-block" : "none" }}>Wallet</span> */}
-                        </Link>
-                    </li>
-                    <li> 
-                        <Link to="/charts" onClick={() => setIsOpen(false)}> Charts
-                            {/* <span style={{ display: isOpen ? "inline-block" : "none" }}>Charts</span> */}
-                        </Link>
-                    </li>
-                    <li> 
-                        <Link to="/" onClick={() => setIsOpen(false)}> Logout
-                          {/*   <span style={{ display: isOpen ? "inline-block" : "none" }}>Logout</span> */}
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+            <section className="menu">
+                <div className="burgerMenu" onClick={() => setIsOpen(!isOpen)}>
+                    <div className="line"></div>
+                    <div className="line"></div>
+                    <div className="line"></div>
+                </div>
+                <nav className={isOpen ? "open" : "closeNav"} ref={ref}>
+                    <ul>
+                        <li> 
+                            <Link to="/home" onClick={() => setIsOpen(false)}> Home</Link>
+                        </li>
+                        <li> 
+                            <Link to="/turnovers" onClick={() => setIsOpen(false)}> Wallet</Link>
+                        </li>
+                        <li> 
+                            <Link to="/charts" onClick={() => setIsOpen(false)}> Charts</Link>
+                        </li>
+                        <li> 
+                            <Link to="/" onClick={() => setIsOpen(false)}> Logout</Link>
+                        </li>
+                    </ul>
+                </nav>
             </section>
         </header>
     );

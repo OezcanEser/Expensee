@@ -1,4 +1,4 @@
-export function checkInput(data) {
+function checkInput(data) {
   for (let item in data) {
     if (typeof data[item] == 'string') {
       if (!data[item].trim()) {
@@ -8,3 +8,7 @@ export function checkInput(data) {
   }
   return true;
 }
+
+module.exports = {
+  checkInput,
+};
