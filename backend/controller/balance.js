@@ -5,7 +5,7 @@ const { calculateBalance } = require('../utils/calculateBalance');
 
 const getUserInputs = asyncHandler(async (req, res, next) => {
   let userId = 1;
-  let offsetIndex = 7;
+  let offsetIndex = 0;
   let endOfLength = false;
   let rowsCount;
 
@@ -16,9 +16,14 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
 
   rowsCount = inputLength.rows[0].count * 1;
 
-  if (offsetIndex + 7 > rowsCount) {
+  if (rowsCount <= 7) {
+    offsetIndex = 0;
     endOfLength = true;
-    offsetIndex = rowsCount - 7;
+  } else {
+    if (offsetIndex + 7 > rowsCount) {
+      offsetIndex = rowsCount - 7;
+      endOfLength = true;
+    }
   }
 
   let { rows } = await db.query(
@@ -30,7 +35,7 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
     return next(new ErrorHandler('Nothing to see here!', 404));
   }
 
-  res.status(200).redirect(process.env.REDIRECT_URL).json({
+  res.status(200).json({
     user: req.user,
     success: true,
     endOfLength,
@@ -55,7 +60,10 @@ const getSummary = asyncHandler(async (req, res, next) => {
     obj.ausgaben = calculateBalance('Ausgaben', rows);
     obj.sonstiges = calculateBalance('Sonstiges', rows);
 
-    obj.sparen = obj.einkommen - obj.ausgaben * -1 - obj.sonstiges;
+    obj.sparen =
+      obj.einkommen.costenSummary +
+      obj.ausgaben.costenSummary +
+      obj.sonstiges.costenSummary;
   }
 
   res.status(200).json({

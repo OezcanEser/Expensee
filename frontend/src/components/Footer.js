@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+
 const Footer = () => {
     return (
         <footer className="footer">
@@ -19,8 +20,8 @@ const Footer = () => {
                     </li>
                     <li>
                         <NavLink className="charts"
-                            /* style={{ color: '#EFBC2C' }} */ to="/charts">
-                            <img src="./img/charts.svg" alt="charts" />
+                            style={{ tintColor: '#EFBC2C' }} to="/charts">
+                            <img src="./img/charts.svg" alt="charts" style={{ tintColors: '#EFBC2C' }}/>
                         </NavLink>
                     </li>
                 </ul>
