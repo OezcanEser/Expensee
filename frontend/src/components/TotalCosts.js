@@ -11,6 +11,7 @@ const TotalCosts = ({ heading, total = 0, costs, show }) => {
         );
       })
     : null;
+
   return (
     <>
       <h1>
