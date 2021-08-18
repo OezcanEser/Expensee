@@ -9,6 +9,15 @@ const redirect = asyncHandler(async (req, res, next) => {
   });
 });
 
+const logoutUser = asyncHandler(async (req, res, next) => {
+  req.logout();
+  res.sgatus(200).json({
+    success: true,
+    user: null,
+  });
+});
+
 module.exports = {
   redirect,
+  logoutUser,
 };
