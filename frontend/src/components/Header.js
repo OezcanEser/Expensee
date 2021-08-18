@@ -14,6 +14,10 @@ const Header = () => {
                     <div className="line"></div>
                 </div>
                 <nav className={isOpen ? "open" : "closeNav"} ref={ref}>
+                    <div className="cross" onClick={() => setIsOpen(false)}>
+                        <div className="crossline"></div>
+                        <div className="crossline"></div>
+                    </div>
                     <ul>
                         <li> 
                             <Link to="/home" onClick={() => setIsOpen(false)}> Home</Link>
