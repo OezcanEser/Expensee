@@ -1,55 +1,51 @@
-import { useState } from 'react';
-import Footer from './Footer';
-import Header from './Header';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios"
+import Footer from "./Footer"
+import Header from "./Header";
 
 const Home = () => {
-  const [priceData, setPriceData] = useState([
-    {
-      id: 4,
-      category: 'Sonstiges',
-      description: 'Essen',
-      price: 220,
-      created_at: '2020-10-09T22:00:00.000Z',
-      user_id: 1,
-    },
-    {
-      id: 5,
-      category: 'Sonstiges',
-      description: 'Saft',
-      price: 20,
-      created_at: '2020-10-09T22:00:00.000Z',
-      user_id: 1,
-    },
-    {
-      id: 6,
-      category: 'Sonstiges',
-      description: 'test description',
-      price: 200,
-      created_at: '2020-10-09T22:00:00.000Z',
-      user_id: 1,
-    },
-  ]);
-  console.log(setPriceData);
-  return (
-    <>
-      <Header />
-      <section>
-        <h4>Letzte Transaktionen</h4>
-        <p>Show full</p>
-        <ul>
-          {priceData.map((transfer) => (
-            <li key={transfer.id}>
-              <h4>{transfer.description}</h4>
-              <p>{transfer.created_at}</p>
-              <p>{transfer.price}</p>
-            </li>
-          ))}
-        </ul>
-        <button disabled='disabled'>Mehr Transaktionen</button>
-      </section>
-      <Footer />
-    </>
-  );
-};
+    let { id } = useParams()
+    const [priceData, setPriceData] = useState()
+    const [showMore, setShowMore] = useState(0)
+    const [term, setTerm] = useState("/balance")
+
+
+    useEffect(() => {
+        axios.get(term)
+            .then(result => { setPriceData(result.data.data) })
+            .catch(err => console.log(err))
+    }, [term])
+
+    const handleMore = () => {
+        setShowMore(prev => prev + 7)
+    }
+
+    // const deleteTransfer = () => {
+    //     axios.delete(`/input/${id}`)
+    //         .then(result => window.location.href = result.data.redirect)
+    //         .catch(err => console.log(err))
+    // }
+
+    return (<>
+        <Header />
+        <main>
+            <section>
+                <h4>Letzte Transaktionen</h4>
+                <button onClick={() => setTerm("/balance/all")}>Show full</button>
+                <ul>
+                    {priceData && priceData.map((transfer) => <li key={transfer.id}>
+                        <div style={{ width: "50px", height: "50px", borderRadius: "50%", backgroundColor: transfer.category === "Einnahmen" ? "green" : "red" }}></div>
+                        <h4>{transfer.description}</h4>
+                        <p>{transfer.created_at}</p>
+                        <p>{transfer.price}</p>
+                    </li>)}
+                </ul>
+                <button onClick={handleMore}>Mehr Transaktionen</button>
+            </section>
+        </main>
+        <Footer />
+    </>);
+}
 
 export default Home;

@@ -18,6 +18,54 @@ const Charts = () => {
         labels: ["Einkommen", "Ausgaben", "Sparen", "Sonstiges"],
     }
 
+    //  / get > response {  user: req.user, success: true, endOfLength, data: rows -> Array,}
+    // /summary get > response {data: obj,}
+
+    //     "data": {
+    //         "einkommen": {
+    //             "costenSummary": 400,
+    //             "showCosten": [
+    //                 {
+    //                     "description": "Sonstiges test2",
+    //                     "price": 200
+    //                 },
+    //                 {
+    //                     "description": "einnahmen test2",
+    //                     "price": 200
+    //                 }
+    //             ]
+    //         },
+    //         "ausgaben": {
+    //             "costenSummary": -400,
+    //             "showCosten": [
+    //                 {
+    //                     "description": "ausgaben test1",
+    //                     "price": -200
+    //                 },
+    //                 {
+    //                     "description": "ausgaben test2",
+    //                     "price": -200
+    //                 }
+    //             ]
+    //         },
+    //         "sparen": -400,
+    //         "sonstiges": {
+    //             "costenSummary": -400,
+    //             "showCosten": [
+    //                 {
+    //                     "description": "Sonstiges test1",
+    //                     "price": -200
+    //                 },
+    //                 {
+    //                     "description": "Sonstiges test2",
+    //                     "price": -200
+    //                 }
+    //             ]
+    //         }
+    //     }
+    // }
+
+
     return (
         <section>
             <Header />
