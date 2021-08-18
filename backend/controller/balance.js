@@ -43,6 +43,22 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
   });
 });
 
+const showAll = asyncHandler(async (req, res, next) => {
+  let userId = 1;
+  let { rows } = await db.query('select * from wallets where user_id= $1', [
+    userId,
+  ]);
+
+  if (!rows.length) {
+    return next(new ErrorHandler('Data not found!', 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    data: rows,
+  });
+});
+
 const getSummary = asyncHandler(async (req, res, next) => {
   let userId = 1;
   let { rows } = await db.query('select * from wallets where user_id = $1', [
@@ -74,4 +90,5 @@ const getSummary = asyncHandler(async (req, res, next) => {
 module.exports = {
   getUserInputs,
   getSummary,
+  showAll,
 };
