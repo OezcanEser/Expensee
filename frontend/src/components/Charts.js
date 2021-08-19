@@ -18,7 +18,6 @@ const Charts = () => {
     async function getTotalCosts() {
       let { data } = await axios.get('/balance/summary');
       setTotalCosts(data.data);
-      console.log(totalCosts);
     }
     getTotalCosts();
   }, []);
@@ -41,6 +40,8 @@ const Charts = () => {
         );
       })
     : null;
+
+  console.log(totalCosts);
 
   return (
     <>
