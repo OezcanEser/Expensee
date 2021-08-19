@@ -24,6 +24,10 @@ const Turnovers = () => {
     });
   };
 
+  let valueChoice = optionData.map((element) => {
+    return (<option key={element} value={element}>{element}</option>);
+  });
+
   const newTransfer = (event) => {
     event.preventDefault()
     axios.post(`/input`, inputs)
@@ -68,7 +72,7 @@ const Turnovers = () => {
             <div id="success">
               <img src="../img/sucess.png" alt="" />
               <h3><span>Erfolgreich</span><br />eingetragen!</h3>
-              <img src="./img/line.png" />
+              <img src="./img/line.png" alt="#" />
               <section>
                 <article>
                   <p><span>Datum</span><br />{data.created_at}</p>
