@@ -3,7 +3,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
 import TotalCosts from './TotalCosts';
-import Chart from './Chart';
+import Pie from './Pie';
 
 const Charts = () => {
   const [totalCosts, setTotalCosts] = useState(null);
@@ -32,7 +32,7 @@ const Charts = () => {
         >
           <TotalCosts
             heading={el}
-            total={totalCosts[el].costenSummary}
+            total={totalCosts[el].costenSummary ? totalCosts[el].costenSummary : totalCosts[el]}
             costs={totalCosts[el].showCosten}
             show={showCostsDetails[el]}
           />
@@ -46,7 +46,7 @@ const Charts = () => {
       <Header />
       <main>
         <section>
-          <Chart />
+          <Pie />
           {showTotalCosts}
         </section>
       </main>
