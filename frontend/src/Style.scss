@@ -67,7 +67,6 @@ body {
       transform: translateY(100%);
     }
   }
-  
 
 /* -------Header--------------- */
 
@@ -106,6 +105,7 @@ header {
                     width: 15px;
                     height: 1px;
                     background: $main-color-white;
+                }
 
   .menu {
     width: 70%;
@@ -409,7 +409,7 @@ header {
             margin-top: 10%;
         }
     }
-    
+
 }
 
 /* -------Footer----------------- */
