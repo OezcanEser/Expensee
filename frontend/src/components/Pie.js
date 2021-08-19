@@ -1,7 +1,7 @@
-import { Pie } from 'react-chartjs-2'
+import { Pie } from 'react-Piejs-2'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-const Chart = () => {
+const Pie = () => {
     const [totalCosts, setTotalCosts] = useState(null);
 
     const setPie = {
@@ -62,4 +62,4 @@ const Chart = () => {
     />);
 }
 
-export default Chart;
+export default Pie;
