@@ -22,94 +22,57 @@ body {
   background: $main-color-bg;
 }
 
-// Loader:
-
 .Loader {
-    div {
-      width: 200px;
-      height: 100px;
-      margin: auto;
-      display: flex;
-      overflow: hidden;
-      span {
-        background-color: white;
-        width: 100%;
-        height: 100%;
-        margin: 10px;
-        transform-origin: bottom;
-        animation: loader 1s linear infinite alternate;
-      }
+  div {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+    span {
+      background-color: white;
+      width: 100%;
+      height: 100%;
+      margin: 10px;
+      transform-origin: bottom;
+      animation: loader 1s linear infinite alternate;
     }
   }
-  
-  $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
-  
-  @each $item in $animList {
-    .Loader > div > span:nth-child(#{nth($item,1)}) {
-      animation-delay: nth($item, 2);
-    }
+}
+
+$animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
+
+@each $item in $animList {
+  .Loader > div > span:nth-child(#{nth($item,1)}) {
+    animation-delay: nth($item, 2);
   }
-  
-  @keyframes loader {
-    0% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(30%);
-    }
-    50% {
-      transform: translateY(50%);
-    }
-    75% {
-      transform: translateY(75%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
+}
+
+@keyframes loader {
+  0% {
+    transform: translateY(0);
   }
-  
+  25% {
+    transform: translateY(30%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  75% {
+    transform: translateY(75%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
 
 /* -------Header--------------- */
 
 header {
-    height: 10vh;
-    
-    .menu {
-        width: 70%;
-        
-        .headBurger {
-            position: fixed;
-            width: 100%;
-            box-shadow: 1px 2px 1px 1px $main-color-bg-dark;
-            background: $main-color-bg;
-            h1 {
-                color: $main-color-white;
-                font-size: 1.5rem;
-                font-weight: 300;
-                padding: 15px 70px;
-            }
-        }
-        nav {
-            position: relative;
-            box-shadow: inset 7px 0 8px -5px $main-color-bg-dark, inset -7px 0 8px -5px $main-color-bg-dark;
-            transition: left 1s;
-            background: $main-color-bg;
-            background-image: url(./img/waves_nav.png);
-            background-position: bottom right;
-            background-repeat: no-repeat;
-            .cross {
-                position: absolute;
-                right: 30px;
-                top: 20px;
-                .crossline {
-                    content: "";
-                    width: 15px;
-                    height: 1px;
-                    background: $main-color-white;
+  height: 10vh;
 
   .menu {
     width: 70%;
-
     .headBurger {
       position: fixed;
       width: 100%;
@@ -124,7 +87,8 @@ header {
     }
     nav {
       position: relative;
-      box-shadow: 1px 1px 1px 2px $main-color-bg-dark;
+      box-shadow: inset 7px 0 8px -5px $main-color-bg-dark,
+        inset -7px 0 8px -5px $main-color-bg-dark;
       transition: left 1s;
       background: $main-color-bg;
       background-image: url(./img/waves_nav.png);
@@ -234,35 +198,32 @@ header {
       padding-bottom: 3%;
     }
     ul {
-        
-        li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 1.5% 3%;
-            background: $main-color-bg-dark;
-            padding: 3%;
-            article {
-                font-size: .8rem;
-                padding-right: 7%;
-                h4 {
-                    font-weight: 300;
-                    font-size: 1rem;
-                    width: 150px;
-                }
-            }
-            .price {
-                color: $main-color-yellow;
-                font-weight: 400;
-            }
-            .price::after {
-                content: " €";
-            }
-            img {
-              
-            }
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1.5% 3%;
+        background: $main-color-bg-dark;
+        padding: 3%;
+        article {
+          font-size: 0.8rem;
+          padding-right: 7%;
+          h4 {
+            font-weight: 300;
+            font-size: 1rem;
+            width: 150px;
+          }
         }
-
+        .price {
+          color: $main-color-yellow;
+          font-weight: 400;
+        }
+        .price::after {
+          content: ' €';
+        }
+        img {
+        }
+      }
     }
   }
   ul {
@@ -342,74 +303,70 @@ header {
 }
 /* Modal */
 #success {
-    text-align: center;
-    color: $main-color-white;
-    background: $main-color-bg;
-    height: 380px;
-    width: 300px;
-    border-radius: 10px;
+  text-align: center;
+  color: $main-color-white;
+  background: $main-color-bg;
+  height: 380px;
+  width: 300px;
+  border-radius: 10px;
+  position: absolute;
+  img {
+    position: relative;
+    top: -30px;
+  }
+  .lineCircle {
     position: absolute;
-    img {
-        position: relative;
-        top: -30px;
-        
+    top: 32%;
+    left: -5px;
+    transform: rotate(90deg);
+    height: 10px;
+    width: 20px;
+    border-radius: 15px 15px 0 0;
+    background-color: #16172e;
+  }
+  .lineCircle2 {
+    position: absolute;
+    top: 32%;
+    right: -5px;
+    transform: rotate(-90deg);
+    height: 10px;
+    width: 20px;
+    border-radius: 15px 15px 0 0;
+    background-color: #16172e;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    position: relative;
+    top: -30px;
+    margin-bottom: 3%;
+  }
+  section {
+    padding: 0 7%;
+    text-align: left;
+    p {
+      font-weight: 400;
+      span {
+        font-weight: 200;
+        font-size: 0.8rem;
+      }
     }
-    .lineCircle {
-        position: absolute;
-        top: 32%;
-        left: -5px;
-        transform: rotate(90deg);
-        height: 10px;
-        width: 20px;
-        border-radius: 15px 15px 0 0;
-        background-color: #16172E;
+    article {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
-    .lineCircle2 {
-        position: absolute;
-        top: 32%;
-        right: -5px;
-        transform: rotate(-90deg);
-        height: 10px;
-        width: 20px;
-        border-radius: 15px 15px 0 0;
-        background-color: #16172E;
+    .price {
+      margin-top: 15%;
+      font-size: 1.6em;
     }
-    h3 {
-        font-size: 1.5rem;
-        font-weight: 300;
-        position: relative;
-        top: -30px;
-        margin-bottom: 3%;
+    .price::after {
+      content: ' €';
     }
-    section {
-        padding: 0 7%;
-        text-align: left;
-        p {
-            font-weight: 400;
-            span {
-                font-weight: 200;
-                font-size: .8rem;
-            }
-        }
-        article {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            
-        }
-        .price {
-            margin-top: 15%;
-            font-size: 1.6em;
-            
-        }
-        .price::after {
-            content: " €";
-        }
-        .categorie {
-            margin-top: 10%;
-        }
+    .categorie {
+      margin-top: 10%;
     }
-    
+  }
 }
 
 /* -------Footer----------------- */
