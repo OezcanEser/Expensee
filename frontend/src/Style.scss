@@ -25,7 +25,40 @@ body {
 /* -------Header--------------- */
 
 header {
-  height: 10vh;
+    height: 10vh;
+    
+    .menu {
+        width: 70%;
+        
+        .headBurger {
+            position: fixed;
+            width: 100%;
+            box-shadow: 1px 2px 1px 1px $main-color-bg-dark;
+            background: $main-color-bg;
+            h1 {
+                color: $main-color-white;
+                font-size: 1.5rem;
+                font-weight: 300;
+                padding: 15px 70px;
+            }
+        }
+        nav {
+            position: relative;
+            box-shadow: inset 7px 0 8px -5px $main-color-bg-dark, inset -7px 0 8px -5px $main-color-bg-dark;
+            transition: left 1s;
+            background: $main-color-bg;
+            background-image: url(./img/waves_nav.png);
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            .cross {
+                position: absolute;
+                right: 30px;
+                top: 20px;
+                .crossline {
+                    content: "";
+                    width: 15px;
+                    height: 1px;
+                    background: $main-color-white;
 
   .menu {
     width: 70%;
@@ -153,12 +186,36 @@ header {
       font-weight: 300;
       padding-bottom: 3%;
     }
-    button {
-      background: $main-color-bg;
-      color: $main-color-white;
-      font-weight: lighter;
-      outline-style: none;
-      border-style: none;
+    ul {
+        
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5% 3%;
+            background: $main-color-bg-dark;
+            padding: 3%;
+            article {
+                font-size: .8rem;
+                padding-right: 7%;
+                h4 {
+                    font-weight: 300;
+                    font-size: 1rem;
+                    width: 150px;
+                }
+            }
+            .price {
+                color: $main-color-yellow;
+                font-weight: 400;
+            }
+            .price::after {
+                content: " €";
+            }
+            img {
+              
+            }
+        }
+
     }
   }
   ul {
@@ -238,23 +295,74 @@ header {
 }
 /* Modal */
 #success {
-  text-align: center;
-  color: $main-color-white;
-  background: $main-color-bg;
-  height: 350px;
-  width: 300px;
-  border-radius: 10px;
-  position: absolute;
-  img {
-    position: relative;
-    top: -30px;
-  }
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 300;
-    position: relative;
-    top: -30px;
-  }
+    text-align: center;
+    color: $main-color-white;
+    background: $main-color-bg;
+    height: 380px;
+    width: 300px;
+    border-radius: 10px;
+    position: absolute;
+    img {
+        position: relative;
+        top: -30px;
+        
+    }
+    .lineCircle {
+        position: absolute;
+        top: 32%;
+        left: -5px;
+        transform: rotate(90deg);
+        height: 10px;
+        width: 20px;
+        border-radius: 15px 15px 0 0;
+        background-color: #16172E;
+    }
+    .lineCircle2 {
+        position: absolute;
+        top: 32%;
+        right: -5px;
+        transform: rotate(-90deg);
+        height: 10px;
+        width: 20px;
+        border-radius: 15px 15px 0 0;
+        background-color: #16172E;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        position: relative;
+        top: -30px;
+        margin-bottom: 3%;
+    }
+    section {
+        padding: 0 7%;
+        text-align: left;
+        p {
+            font-weight: 400;
+            span {
+                font-weight: 200;
+                font-size: .8rem;
+            }
+        }
+        article {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+        }
+        .price {
+            margin-top: 15%;
+            font-size: 1.6em;
+            
+        }
+        .price::after {
+            content: " €";
+        }
+        .categorie {
+            margin-top: 10%;
+        }
+    }
+    
 }
 
 /* -------Footer----------------- */
