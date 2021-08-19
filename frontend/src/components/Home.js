@@ -8,7 +8,6 @@ const Home = () => {
     const [showMore, setShowMore] = useState(0)
     const [term, setTerm] = useState("/balance")
 
-
     useEffect(() => {
         axios.get(term)
             .then(result => { setPriceData(result.data.data) })

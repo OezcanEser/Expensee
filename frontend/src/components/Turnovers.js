@@ -61,7 +61,7 @@ const Turnovers = () => {
 
   return (
     <>
-      <Header title='Wallet' />
+      <Header title="Wallet" />
       <main>
         <section className='wallet'>
           <Link to='/home'>
@@ -152,7 +152,7 @@ const Turnovers = () => {
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
 export default Turnovers;
