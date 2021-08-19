@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import ModalWallet from "./ModalWallet";
 
 const optionData = [" ", "Einnahmen", "Ausgaben", "Sonstiges"];
+const descriptionData = ["Lebensmittel", "Shopping", "Wohnung", "Restaurant", "Versicherung"]
 
 const Turnovers = () => {
     const [open, setOpen] = useState(false);
@@ -38,6 +39,9 @@ const Turnovers = () => {
         return (<option key={element} value={element}>{element}</option>);
     });
 
+    let valueDescription = descriptionData.map((element) => {
+        return (<option key={element} value={element}>{element}</option>);
+    })
     
     const newTransfer = (event) => {
         event.preventDefault()
@@ -63,7 +67,10 @@ const Turnovers = () => {
                     <h1>Umsätze</h1>
                     <form onSubmit={ (ev) => newTransfer(ev)}>
                         <select onChange={(event) => setData(event.target.value)} required >{valueChoice}</select> <br />
-                        <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} required /> <br />
+                        {/* <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} required />  */}
+                        <input type="text" name="description" list="Beschreibung" placeholder="Beschreibung"
+                        value={inputs.description} onChange={handleInputs} required/>
+                            <datalist id="Beschreibung"  onChange={(event) => setData(event.target.value)} required >{valueDescription}</datalist>
                         <input type="number" name="price" placeholder="Geldbetrag" value={inputs.price} onChange={handleInputs} required /> <br />
                         <input type="date" name="created_at" placeholder="Datum" value={inputs.created_at} onChange={handleInputs} required /> <br />
                         <input type="submit" value="Abschicken"/>
