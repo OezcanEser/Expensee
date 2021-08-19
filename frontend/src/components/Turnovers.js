@@ -5,7 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ModalWallet from "./ModalWallet";
 
-const optionData = ["Einnahmen", "Ausgaben", "Sonstiges"];
+const optionData = [" ", "Einnahmen", "Ausgaben", "Sonstiges"];
 
 const Turnovers = () => {
     const [open, setOpen] = useState(false);

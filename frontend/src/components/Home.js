@@ -26,7 +26,7 @@ const Home = () => {
             .catch(err => console.log(err))
         setPriceData(prev => prev.filter(el => el.id !== id))
     }
-    //window.location.href = result.data.redirect
+  
     return (<>
         <Header title="Übersicht" />
         <main>
