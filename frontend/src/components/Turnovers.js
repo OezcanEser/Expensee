@@ -23,7 +23,7 @@ const Turnovers = () => {
       return () => {
         clearInterval(timer); 
       }
-    }, []);
+    }, []); 
   
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric' });
 
