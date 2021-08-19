@@ -3,7 +3,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
 import TotalCosts from './TotalCosts';
-import Pie from './Pie';
+import Pie from './PieChart';
 
 const Charts = () => {
   const [totalCosts, setTotalCosts] = useState(null);
