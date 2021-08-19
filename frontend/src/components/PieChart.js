@@ -1,4 +1,4 @@
-import { Pie } from 'react-chartjs-2'
+import { Doughnut } from 'react-chartjs-2'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 const PieChart = () => {
@@ -16,11 +16,7 @@ const PieChart = () => {
                 "rgba(149, 152, 154, 1)",
             ],
             borderWidth: 0,
-        }, {
-            label: "Total",
-            data: [3450],
-            backgroundColor: "rgba(255, 255, 255, 1)"
-        }]
+        }],
     }
 
     useEffect(() => {
@@ -43,23 +39,42 @@ const PieChart = () => {
     }
     console.log(pieces())
 
-    return (<Pie
-        data={setPie}
-        options={{
-            plugins: {
-                tooltip: {
-                    enabled: false
-                },
-                legend: {
-                    position: "bottom",
-                    labels: {
-                        color: "#ffffff",
-                        usePointStyle: true,
+
+    const chartSparen = new Number();
+    chartSparen.src = totalCosts ? totalCosts.sparen : null
+
+    const test = {
+        beforeDraw: (chart) => {
+            if (chartSparen.complete) {
+                const ctx = chart.ctx;
+                const { top, left, width, height } = chart.chartArea;
+                const x = left + width / 2 - chartSparen.width / 2;
+                const y = top + height / 2 - chartSparen.height / 2;
+                ctx.drawChart(chartSparen, x, y);
+            } else {
+                chartSparen.onload = () => chart.draw();
+            }
+        }
+    }
+    return (<>
+        <Doughnut
+            data={setPie}
+            options={{
+                plugins: [test],
+                plugins: {
+                    tooltip: {
+                        enabled: false
+                    },
+                    legend: {
+                        position: "bottom",
+                        labels: {
+                            color: "#ffffff",
+                            usePointStyle: true,
+                        }
                     }
                 }
-            }
-        }}
-    />);
+            }}
+        /></>);
 }
 
 export default PieChart;
