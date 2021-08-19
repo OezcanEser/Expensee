@@ -3,29 +3,26 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import Header from "./Header";
 import Footer from "./Footer";
-import Modal from '@material-ui/core/Modal';
-import React from 'react';
+import ModalWallet from "./ModalWallet";
 
 const optionData = ["Einnahmen", "Ausgaben", "Sonstiges"];
 
 const Turnovers = () => {
+    const [open, setOpen] = useState(false);
     const [data, setData] = useState("");
     const [inputs, setInputs] = useState({ category: "", description: "", price: "", created_at: "" })
     const [error, setError] =useState("")
-    const [open, setOpen] = useState(false);
-    const locale = 'de';
-    const [today, setDate] = useState(new Date());
 
     useEffect(() => {
-        const timer = setInterval(() => { 
-        setDate(new Date());
-      }, 60 * 1000);
-      return () => {
-        clearInterval(timer); 
-      }
-    }, []); 
-  
-    const time = today.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric' });
+        let close;
+        if (open == true) {
+            close = setTimeout(() => {
+                setOpen(false)
+                setInputs({ category: "", description: "", price: "", created_at: "" })
+            }, 4000)
+        }
+        return () => clearTimeout(close)
+    }, [open])
 
     const handleInputs = (event) => {
         setInputs(prev => {
@@ -45,12 +42,10 @@ const Turnovers = () => {
     const newTransfer = (event) => {
         event.preventDefault()
         axios.post(`/input`, inputs)
-            .then(result => console.log(result))
+            .then(result => setOpen(true))
             .catch(err => err.response ? setError(err.response.data.message) : setError(error.message))
     }
 
-    //Modal
-  
     const handleClose = () => {
         setOpen(false);
     };
@@ -71,36 +66,19 @@ const Turnovers = () => {
                         <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} required /> <br />
                         <input type="number" name="price" placeholder="Geldbetrag" value={inputs.price} onChange={handleInputs} required /> <br />
                         <input type="date" name="created_at" placeholder="Datum" value={inputs.created_at} onChange={handleInputs} required /> <br />
-                        <input type="submit" value="Abschicken" onClick={handleOpen}/>
+                        <input type="submit" value="Abschicken"/>
                     </form>
                     <h1>{error}</h1>
-                    <Modal
-                        onClose={handleClose}
-                        open={open}
-                        style={{
-                        position: 'absolute',
-                        backgroundColor: '#2B2D5B',
-                        height: 380,
-                        width: 300,
-                        margin: 'auto',
-                        }}
-                    >
-                    <div id="success">
-                        <img src="../img/sucess.png" alt="sucess" />
-                        <h3><span>Erfolgreich</span><br />eingetragen!</h3>
-                        <span className="lineCircle"></span>
-                        <img src="./img/line.png" alt="line"/>
-                        <span className="lineCircle2"></span>
-                        <section>
-                            <article>
-                                <p><span>Datum</span><br />{inputs.created_at}</p>
-                                <p><span>Zeit</span><br />{time}</p>
-                            </article>
-                            <p className="categorie"><span>Kategorie</span><br />{inputs.category}</p>
-                            <p className="price"><span>Summe</span><br />{inputs.price}</p>
-                        </section>
-                    </div>
-                    </Modal>
+                    <ModalWallet 
+                        open= {open}
+                        onClose = {handleClose}
+                        data= {inputs}
+                      /*   date={new Intl.DateTimeFormat("en-GB", {
+                            year: "numeric",
+                            month: "long",
+                            day: "2-digit"
+                          }).format(inputs.created_at)} */
+                    />
                 </section>
             </main>
             <Footer />
