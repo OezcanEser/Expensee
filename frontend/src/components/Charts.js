@@ -52,6 +52,7 @@ const Charts = () => {
           <div
             key={el}
             onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
+            style={{ marginBottom: '50px' }}
           >
             <TotalCosts
               heading={el}
