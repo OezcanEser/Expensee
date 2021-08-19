@@ -44,7 +44,7 @@ header {
         }
         nav {
             position: relative;
-            box-shadow: 1px 1px 1px 2px $main-color-bg-dark;
+            box-shadow: inset 7px 0 8px -5px $main-color-bg-dark, inset -7px 0 8px -5px $main-color-bg-dark;
             transition: left 1s;
             background: $main-color-bg;
             background-image: url(./img/waves_nav.png);
@@ -173,6 +173,7 @@ header {
                 h4 {
                     font-weight: 300;
                     font-size: 1rem;
+                    width: 150px;
                 }
             }
             .price {
@@ -240,20 +241,71 @@ header {
     text-align: center;
     color: $main-color-white;
     background: $main-color-bg;
-    height: 350px;
+    height: 380px;
     width: 300px;
     border-radius: 10px;
     position: absolute;
     img {
         position: relative;
         top: -30px;
+        
+    }
+    .lineCircle {
+        position: absolute;
+        top: 32%;
+        left: -5px;
+        transform: rotate(90deg);
+        height: 10px;
+        width: 20px;
+        border-radius: 15px 15px 0 0;
+        background-color: #16172E;
+    }
+    .lineCircle2 {
+        position: absolute;
+        top: 32%;
+        right: -5px;
+        transform: rotate(-90deg);
+        height: 10px;
+        width: 20px;
+        border-radius: 15px 15px 0 0;
+        background-color: #16172E;
     }
     h3 {
         font-size: 1.5rem;
         font-weight: 300;
         position: relative;
         top: -30px;
+        margin-bottom: 3%;
     }
+    section {
+        padding: 0 7%;
+        text-align: left;
+        p {
+            font-weight: 400;
+            span {
+                font-weight: 200;
+                font-size: .8rem;
+            }
+        }
+        article {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+        }
+        .price {
+            margin-top: 15%;
+            font-size: 1.6em;
+            
+        }
+        .price::after {
+            content: " €";
+        }
+        .categorie {
+            margin-top: 10%;
+        }
+    }
+    
 }
 
 /* -------Footer----------------- */
