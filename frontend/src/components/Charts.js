@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Header from './Header';
 import TotalCosts from './TotalCosts';
 import Pie from './PieChart';
+import Loader from './Loader';
 
 const Charts = () => {
   const [totalCosts, setTotalCosts] = useState(null);
@@ -13,34 +14,44 @@ const Charts = () => {
     sparen: false,
     sonstiges: false,
   });
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getTotalCosts() {
-      let { data } = await axios.get('/balance/summary');
-      setTotalCosts(data.data);
+      try {
+        let { data } = await axios.get('/balance/summary');
+        setTotalCosts(data.data);
+      } catch (error) {
+        setError(error.response ? error.response.data.message : error.message);
+      }
     }
     getTotalCosts();
   }, []);
 
   let showTotalCosts = totalCosts
     ? Object.keys(totalCosts).map((el) => {
-      return (
-        <div
-          key={el}
-          onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
-          style={{ marginBottom: '50px' }}
-        >
-          <TotalCosts
-            heading={el}
-            total={totalCosts[el].costenSummary ? totalCosts[el].costenSummary : totalCosts[el]}
-            costs={totalCosts[el].showCosten}
-            show={showCostsDetails[el]}
-          />
-        </div>
-      );
-    })
-
+        return (
+          <div
+            key={el}
+            onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
+            style={{ marginBottom: '50px' }}
+          >
+            <TotalCosts
+              heading={el}
+              total={
+                totalCosts[el].costenSummary
+                  ? totalCosts[el].costenSummary
+                  : totalCosts[el]
+              }
+              costs={totalCosts[el].showCosten}
+              show={showCostsDetails[el]}
+            />
+          </div>
+        );
+      })
     : null;
+
+  let errorExists = error && <h2>{error}</h2>;
 
   console.log(totalCosts);
 
@@ -50,7 +61,9 @@ const Charts = () => {
       <main>
         <section>
           <Pie />
-          {showTotalCosts}
+          <Loader />
+          {errorExists}
+          {!error && showTotalCosts}
         </section>
       </main>
       <Footer />
