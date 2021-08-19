@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap');
-
 /* font-family: 'Lato', sans-serif; */
-
-$main-color-bg: #2b2d5b;
+$main-color-bg: #2B2D5B;
 $main-color-bg-dark: #232450;
-$main-color-white: #ffffff;
-$main-color-yellow: #efb722;
-$main-color-grey: #95989a;
-$main-color-lila: #515feb;
-$main-color-green: #33d27b;
-$color-transaction-green: #00ff00;
-$color-transaction-red: #f63535;
-
+$main-color-white: #FFFFFF;
+$main-color-yellow: #EFB722;
+$main-color-grey: #95989A;
+$main-color-lila: #515FEB;
+$main-color-green: #33D27B;
+$color-transaction-green: #00FF00;
+$color-transaction-red: #F63535;
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +18,6 @@ body {
   font-family: 'Lato', sans-serif;
   background: $main-color-bg;
 }
-
 .Loader {
   div {
     width: 200px;
@@ -39,15 +35,12 @@ body {
     }
   }
 }
-
 $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
-
 @each $item in $animList {
   .Loader > div > span:nth-child(#{nth($item,1)}) {
     animation-delay: nth($item, 2);
   }
 }
-
 @keyframes loader {
   0% {
     transform: translateY(0);
@@ -65,12 +58,9 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
     transform: translateY(100%);
   }
 }
-
 /* -------Header--------------- */
-
 header {
   height: 10vh;
-
   .menu {
     width: 70%;
     .headBurger {
@@ -157,7 +147,6 @@ header {
     }
   }
 }
-
 /* ------- Login --------------- */
 .login {
   background-image: url(./img/waves.png);
@@ -183,7 +172,6 @@ header {
     box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
   }
 }
-
 /* -------Home------------------- */
 .overview {
   color: $main-color-white;
@@ -198,32 +186,6 @@ header {
       padding-bottom: 3%;
     }
     ul {
-<<<<<<< HEAD
-        
-        li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 1.5% 3%;
-            background: $main-color-bg-dark;
-            padding: 3%;
-            article {
-                font-size: .8rem;
-                padding-right: 7%;
-                h4 {
-                    font-weight: 300;
-                    font-size: 1rem;
-                    width: 150px;
-                }
-            }
-            .price {
-                color: $main-color-yellow;
-                font-weight: 400;
-            }
-            .price::after {
-                content: " €";
-            }
-=======
       li {
         display: flex;
         justify-content: space-between;
@@ -239,7 +201,6 @@ header {
             font-size: 1rem;
             width: 150px;
           }
->>>>>>> f81b61ebb2adc6d327b8fb4875cbffe3f56d3ea5
         }
         .price {
           color: $main-color-yellow;
@@ -276,6 +237,8 @@ header {
       .price::after {
         content: ' €';
       }
+      img {
+      }
     }
   }
   .buttonMore {
@@ -292,7 +255,6 @@ header {
     margin-top: 7%;
   }
 }
-
 /* -------Turnovers-------------- */
 .wallet {
   padding: 5%;
@@ -326,7 +288,6 @@ header {
     }
   }
 }
-
 /* Modal */
 #success {
   text-align: center;
@@ -348,7 +309,7 @@ header {
     height: 10px;
     width: 20px;
     border-radius: 15px 15px 0 0;
-    background-color: #16172e;
+    background-color: #16172E;
   }
   .lineCircle2 {
     position: absolute;
@@ -358,7 +319,7 @@ header {
     height: 10px;
     width: 20px;
     border-radius: 15px 15px 0 0;
-    background-color: #16172e;
+    background-color: #16172E;
   }
   h3 {
     font-size: 1.5rem;
@@ -394,7 +355,6 @@ header {
     }
   }
 }
-
 /* -------Footer----------------- */
 .footer {
   position: fixed;
