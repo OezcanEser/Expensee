@@ -30,11 +30,11 @@ const ModalWallet = (props) => {
     console.log(date()) */
    /*  const date = new Date(props.data.created_at) */
     console.log(date)
-    console.log( Intl.DateTimeFormat("en-GB", {
+    /* console.log( Intl.DateTimeFormat("en-GB", {
         year: "numeric",
         month: "long",
         day: "2-digit"
-      }).format(date.prototype.toISOString(date)))
+      }).format(date.prototype.toISOString(date))) */
 
 
     return (
