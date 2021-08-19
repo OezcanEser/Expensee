@@ -3,7 +3,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
 import TotalCosts from './TotalCosts';
-import Chart from './Chart';
+import Pie from './PieChart';
 
 const Charts = () => {
   const [totalCosts, setTotalCosts] = useState(null);
@@ -18,7 +18,6 @@ const Charts = () => {
     async function getTotalCosts() {
       let { data } = await axios.get('/balance/summary');
       setTotalCosts(data.data);
-      console.log(totalCosts);
     }
     getTotalCosts();
   }, []);
@@ -29,24 +28,28 @@ const Charts = () => {
         <div
           key={el}
           onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
+          style={{ marginBottom: '50px' }}
         >
           <TotalCosts
             heading={el}
-            total={totalCosts[el].costenSummary}
+            total={totalCosts[el].costenSummary ? totalCosts[el].costenSummary : totalCosts[el]}
             costs={totalCosts[el].showCosten}
             show={showCostsDetails[el]}
           />
         </div>
       );
     })
+
     : null;
+
+  console.log(totalCosts);
 
   return (
     <>
       <Header />
       <main>
         <section>
-          <Chart />
+          <Pie />
           {showTotalCosts}
         </section>
       </main>
