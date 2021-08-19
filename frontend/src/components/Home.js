@@ -7,12 +7,14 @@ const Home = () => {
     const [priceData, setPriceData] = useState()
     const [showMore, setShowMore] = useState(0)
     const [term, setTerm] = useState("/balance")
+    const [disable, setDisable] = useState(false)
 
     useEffect(() => {
-        axios.get(term)
-            .then(result => { setPriceData(result.data.data) })
+        axios.get(`${term}?offset=${showMore}`)
+            .then(result => { setPriceData(result.data.data)
+                setDisable(result.data.endOfLength) })
             .catch(err => console.log(err))
-    }, [term])
+    }, [term, showMore])
 
     const handleMore = () => {
         setShowMore(prev => prev + 7)
@@ -46,7 +48,7 @@ const Home = () => {
                             onClick={() => deleteTransfer(transfer.id)} />
                     </li>)}
                 </ul>
-                <button className="buttonMore" onClick={handleMore}>MEHR TRANSAKTIONEN</button>
+                <button className="buttonMore" onClick={handleMore} disabled={disable}>MEHR TRANSAKTIONEN</button>
             </section>
         </main>
         <Footer />

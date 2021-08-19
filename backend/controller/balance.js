@@ -4,8 +4,9 @@ const ErrorHandler = require('../utils/error');
 const { calculateBalance } = require('../utils/calculateBalance');
 
 const getUserInputs = asyncHandler(async (req, res, next) => {
+  console.log(req.query)
   let userId = 1;
-  let offsetIndex = 0;
+  let offsetIndex = req.query.offset *1;
   let endOfLength = false;
   let rowsCount;
 
