@@ -6,7 +6,7 @@ const TotalCosts = ({ heading, total = 0, costs, show }) => {
         return (
           <li key={Math.random()}>
             <span>{el.description}</span>
-            <span>{el.price}</span>
+            <span>{el.price.toFixed(2)} €</span>
           </li>
         );
       })
@@ -14,10 +14,10 @@ const TotalCosts = ({ heading, total = 0, costs, show }) => {
 
   return (
     <>
-      <h1>
-        {heading.toUpperCase()} {total}€
-      </h1>
-      <ul>{show && costsDetails}</ul>
+        <h3 className="">
+          {heading.toUpperCase(1).slice(0,1) + heading.slice(1)}: {total} €
+        </h3>
+        <ul>{show && costsDetails}</ul>
     </>
   );
 };

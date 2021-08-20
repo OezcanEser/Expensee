@@ -29,12 +29,12 @@ const Charts = () => {
   }, []);
 
   let showTotalCosts = totalCosts
-    ? Object.keys(totalCosts).map((el) => {
+    ? Object.keys(totalCosts).map((el, index) => {
       return (
         <div
           key={el}
           onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
-          style={{ marginBottom: '50px' }}
+          className={`totalCoast-${index+1}`}
         >
           <TotalCosts
             heading={el}
@@ -49,7 +49,7 @@ const Charts = () => {
         </div>
       );
     })
-    : null;
+    : <Loader />;
 
   let errorExists = error && <h2>{error}</h2>;
 
@@ -57,11 +57,11 @@ const Charts = () => {
 
   return (
     <>
-      <Header />
+      <Header title="Statistik"/>
       <main>
-        <section>
+        <section className="statistic">
           <PieChart />
-          <Loader />
+         {/*  <Loader /> */}
           {errorExists}
           {!error && showTotalCosts}
         </section>

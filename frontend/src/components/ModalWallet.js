@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Modal from '@material-ui/core/Modal';
 import React from 'react';
 

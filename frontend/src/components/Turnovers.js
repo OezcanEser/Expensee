@@ -67,7 +67,6 @@ const Turnovers = () => {
                     <h1>Umsätze</h1>
                     <form onSubmit={ (ev) => newTransfer(ev)}>
                         <select onChange={(event) => setData(event.target.value)} required >{valueChoice}</select> <br />
-                        {/* <input type="text" name="description" placeholder="Beschreibung" value={inputs.description} onChange={handleInputs} required />  */}
                         <input type="text" name="description" list="Beschreibung" placeholder="Beschreibung"
                         value={inputs.description} onChange={handleInputs} required/>
                             <datalist id="Beschreibung"  onChange={(event) => setData(event.target.value)} required >{valueDescription}</datalist>
@@ -80,11 +79,6 @@ const Turnovers = () => {
                         open= {open}
                         onClose = {handleClose}
                         data= {inputs}
-                      /*   date={new Intl.DateTimeFormat("en-GB", {
-                            year: "numeric",
-                            month: "long",
-                            day: "2-digit"
-                          }).format(inputs.created_at)} */
                     />
                 </section>
             </main>
