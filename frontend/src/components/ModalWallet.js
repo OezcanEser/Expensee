@@ -3,41 +3,17 @@ import Modal from '@material-ui/core/Modal';
 import React from 'react';
 
 const ModalWallet = (props) => {
-  console.log(props.data);
-  const locale = 'de';
-  const [today, setDate] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDate(new Date());
-    }, 60 * 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
-  const time = today.toLocaleTimeString(locale, {
+  let time = new Date().toLocaleTimeString('de', {
     hour: 'numeric',
     minute: 'numeric',
   });
-
-  let date = props.data.created_at;
-  /* let date = () => {
-        new Intl.DateTimeFormat("de", {
-        year: "numeric",
-        month: "long",
-        day: "2-digit"
-        }).format(props.data.created_at)
-    }
-    
-    console.log(date()) */
-  /*  const date = new Date(props.data.created_at) */
-  console.log(date);
-  /* console.log( Intl.DateTimeFormat("en-GB", {
-        year: "numeric",
-        month: "long",
-        day: "2-digit"
-      }).format(date.prototype.toISOString(date))) */
+  //console.log(time)
+  let date = new Date(props.data.created_at).toLocaleDateString('de', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+  //console.log(date)
 
   return (
     <>
@@ -66,7 +42,7 @@ const ModalWallet = (props) => {
             <article>
               <p>
                 <span>Datum</span>
-                <br /> {props.date}
+                <br /> {date}
               </p>
               <p>
                 <span>Zeit</span>

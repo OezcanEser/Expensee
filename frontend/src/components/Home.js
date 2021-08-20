@@ -11,24 +11,18 @@ const Home = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`${term}?offset=${showMore}`)
-            .then(result => { setPriceData(result.data.data)
-                setDisable(result.data.endOfLength) })
-            .catch(err => console.log(err))
-    }, [term, showMore])
-
-/*     useEffect(() => {
         async function getPriceData() {
             try {
-                let {result} = await axios.get(`${term}?offset=${showMore}`);
-                setPriceData(result.data.data);
-                setDisable(result.data.endOfLength)
+                let {data} = await axios.get(`${term}?offset=${showMore}`);
+                /* console.log(data) */
+                setPriceData(data.data);
+                setDisable(data.endOfLength)
             } catch (error) {
                 setError(error.response ? error.response.data.message : error.message);
             }
         }
         getPriceData();
-    }, [term, showMore]); */
+    }, [term, showMore]);
     
     const handleMore = () => {
         setShowMore(prev => prev + 7)
@@ -54,9 +48,9 @@ const Home = () => {
                         <div style={{ width: "35px", height: "35px", borderRadius: "50%", backgroundColor: transfer.category === "Einnahmen" ? "#00FF00" : "#F63535" }}></div>
                         <article>
                             <h4>{transfer.description}</h4>
-                            <p>{transfer.created_at}</p>
+                            <p>{new Date(transfer.created_at).toLocaleDateString("de", {day: "2-digit", month: "2-digit", year: "numeric"})}</p>
                         </article>
-                        <p className="price">{transfer.price}</p>
+                        <p className="price">{transfer.price.toFixed(2)}</p>
                         <img src="./img/delete.png" alt="delete"
                             style={{ height: "25px" }}
                             onClick={() => deleteTransfer(transfer.id)} />
