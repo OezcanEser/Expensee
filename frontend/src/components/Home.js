@@ -11,24 +11,18 @@ const Home = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`${term}?offset=${showMore}`)
-            .then(result => { setPriceData(result.data.data)
-                setDisable(result.data.endOfLength) })
-            .catch(err => console.log(err))
-    }, [term, showMore])
-
-/*     useEffect(() => {
         async function getPriceData() {
             try {
-                let {result} = await axios.get(`${term}?offset=${showMore}`);
-                setPriceData(result.data.data);
-                setDisable(result.data.endOfLength)
+                let {data} = await axios.get(`${term}?offset=${showMore}`);
+                /* console.log(data) */
+                setPriceData(data.data);
+                setDisable(data.endOfLength)
             } catch (error) {
                 setError(error.response ? error.response.data.message : error.message);
             }
         }
         getPriceData();
-    }, [term, showMore]); */
+    }, [term, showMore]);
     
     const handleMore = () => {
         setShowMore(prev => prev + 7)
