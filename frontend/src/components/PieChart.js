@@ -4,8 +4,6 @@ import axios from 'axios'
 
 const PieChart = () => {
     const [totalCosts, setTotalCosts] = useState(null);
-    const showData = totalCosts + "%";
-    console.log(showData)
 
     useEffect(() => {
         async function getTotalCosts() {
