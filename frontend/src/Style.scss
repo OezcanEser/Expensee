@@ -209,8 +209,6 @@ header {
         .price::after {
           content: ' €';
         }
-        img {
-        }
       }
     }
   }
@@ -237,8 +235,7 @@ header {
       .price::after {
         content: ' €';
       }
-      img {
-      }
+
     }
   }
   .buttonMore {
@@ -288,6 +285,21 @@ header {
     }
   }
 }
+
+.chart {
+  position: relative;
+  .chartText {
+    position: absolute;
+    top: 46.5%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    p {
+      font-size: 40px;
+    }
+  }
+}
+
 /* Modal */
 #success {
   text-align: center;
