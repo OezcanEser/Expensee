@@ -3,7 +3,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
 import TotalCosts from './TotalCosts';
-import Pie from './PieChart';
+import PieChart from './PieChart';
 import Loader from './Loader';
 
 const Charts = () => {
@@ -30,25 +30,25 @@ const Charts = () => {
 
   let showTotalCosts = totalCosts
     ? Object.keys(totalCosts).map((el) => {
-        return (
-          <div
-            key={el}
-            onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
-            style={{ marginBottom: '50px' }}
-          >
-            <TotalCosts
-              heading={el}
-              total={
-                totalCosts[el].costenSummary
-                  ? totalCosts[el].costenSummary
-                  : totalCosts[el]
-              }
-              costs={totalCosts[el].showCosten}
-              show={showCostsDetails[el]}
-            />
-          </div>
-        );
-      })
+      return (
+        <div
+          key={el}
+          onClick={() => setShowCostsDetails({ [el]: !showCostsDetails[el] })}
+          style={{ marginBottom: '50px' }}
+        >
+          <TotalCosts
+            heading={el}
+            total={
+              totalCosts[el].costenSummary
+                ? totalCosts[el].costenSummary
+                : totalCosts[el]
+            }
+            costs={totalCosts[el].showCosten}
+            show={showCostsDetails[el]}
+          />
+        </div>
+      );
+    })
     : null;
 
   let errorExists = error && <h2>{error}</h2>;
@@ -60,7 +60,7 @@ const Charts = () => {
       <Header />
       <main>
         <section>
-          <Pie />
+          <PieChart />
           <Loader />
           {errorExists}
           {!error && showTotalCosts}

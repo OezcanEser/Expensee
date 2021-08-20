@@ -257,7 +257,6 @@ header {
         box-shadow: 6px 6px 8px 5px $main-color-bg-dark;
       }
   }
-  
 }
 /* -------Turnovers-------------- */
 .wallet {
@@ -368,7 +367,6 @@ header {
   }
 }
 /* ---------Charts-------------------- */
-
 .chart {
   position: relative;
   .chartText {
@@ -394,10 +392,8 @@ header {
     /* img {
         width: 100%;
         filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
-        
     } */
     nav {
-    
     ul {
       display: flex;
       justify-content: space-evenly;
@@ -416,7 +412,6 @@ header {
             img {
                 width: 30px;
             }
-            
         }
         .home {
             position: absolute;
@@ -433,7 +428,6 @@ header {
         }
       }
     }
-  
   }
 }
 
