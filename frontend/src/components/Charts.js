@@ -40,8 +40,8 @@ const Charts = () => {
             heading={el}
             total={
               totalCosts[el].costenSummary
-                ? totalCosts[el].costenSummary
-                : totalCosts[el]
+                ? totalCosts[el].costenSummary.toFixed(2)
+                : totalCosts[el].toFixed(2)
             }
             costs={totalCosts[el].showCosten}
             show={showCostsDetails[el]}

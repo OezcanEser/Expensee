@@ -11,7 +11,7 @@ const createInput = asyncHandler(async (req, res, next) => {
   if (!checkInputData) {
     return next(new ErrorHandler('Please provide all required data!', 400));
   }
-
+  console.log(typeof req.body.price, req.body.price)
   let dataToSave = {
     ...req.body,
   };

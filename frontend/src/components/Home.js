@@ -48,9 +48,9 @@ const Home = () => {
                         <div style={{ width: "35px", height: "35px", borderRadius: "50%", backgroundColor: transfer.category === "Einnahmen" ? "#00FF00" : "#F63535" }}></div>
                         <article>
                             <h4>{transfer.description}</h4>
-                            <p>{transfer.created_at}</p>
+                            <p>{new Date(transfer.created_at).toLocaleDateString("de", {day: "2-digit", month: "2-digit", year: "numeric"})}</p>
                         </article>
-                        <p className="price">{transfer.price}</p>
+                        <p className="price">{transfer.price.toFixed(2)}</p>
                         <img src="./img/delete.png" alt="delete"
                             style={{ height: "25px" }}
                             onClick={() => deleteTransfer(transfer.id)} />

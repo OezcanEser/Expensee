@@ -26,7 +26,7 @@ const PieChart = () => {
     return (
         <div className="chart">
             <div className="chartText">
-                <p>{totalCosts && totalCosts.sparen}€</p>
+                <p>{totalCosts && totalCosts.sparen.toFixed(2)}€</p>
             </div>
             <Pie
                 data={{
