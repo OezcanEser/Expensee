@@ -8,6 +8,7 @@ const Home = () => {
     const [showMore, setShowMore] = useState(0)
     const [term, setTerm] = useState("/balance")
     const [disable, setDisable] = useState(false)
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         axios.get(`${term}?offset=${showMore}`)
@@ -16,6 +17,19 @@ const Home = () => {
             .catch(err => console.log(err))
     }, [term, showMore])
 
+/*     useEffect(() => {
+        async function getPriceData() {
+            try {
+                let {result} = await axios.get(`${term}?offset=${showMore}`);
+                setPriceData(result.data.data);
+                setDisable(result.data.endOfLength)
+            } catch (error) {
+                setError(error.response ? error.response.data.message : error.message);
+            }
+        }
+        getPriceData();
+    }, [term, showMore]); */
+    
     const handleMore = () => {
         setShowMore(prev => prev + 7)
     }
@@ -26,7 +40,7 @@ const Home = () => {
             .catch(err => console.log(err))
         setPriceData(prev => prev.filter(el => el.id !== id))
     }
-    //window.location.href = result.data.redirect
+  
     return (<>
         <Header title="Übersicht" />
         <main>
@@ -48,7 +62,9 @@ const Home = () => {
                             onClick={() => deleteTransfer(transfer.id)} />
                     </li>)}
                 </ul>
-                <button className="buttonMore" onClick={handleMore} disabled={disable}>MEHR TRANSAKTIONEN</button>
+                <div className="buttonM">
+                    <button className="buttonMore" onClick={handleMore} disabled={disable}>MEHR TRANSAKTIONEN</button>
+                </div>
             </section>
         </main>
         <Footer />

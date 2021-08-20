@@ -66,13 +66,13 @@ header {
     .headBurger {
       position: fixed;
       width: 100%;
-      box-shadow: 1px 2px 1px 1px $main-color-bg-dark;
+      box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
       background: $main-color-bg;
       h1 {
         color: $main-color-white;
         font-size: 1.5rem;
         font-weight: 300;
-        padding: 15px 70px;
+        padding: 18px 70px;
       }
     }
     nav {
@@ -88,6 +88,7 @@ header {
         position: absolute;
         right: 30px;
         top: 20px;
+        cursor: pointer;
         .crossline {
           content: '';
           width: 15px;
@@ -132,8 +133,9 @@ header {
     height: 20px;
     width: 30px;
     position: fixed;
-    top: 4vmin;
-    left: 5vmin;
+    top: 17px;
+    left: 20px;
+    cursor: pointer;
     .line {
       margin-top: 6px;
       width: 27px;
@@ -179,37 +181,23 @@ header {
   .overviewHead {
     display: flex;
     justify-content: space-between;
-    padding-top: 12%;
+    padding-top: 8%;
     margin: 0 5%;
     h3 {
       font-weight: 300;
       padding-bottom: 3%;
     }
-    ul {
-      li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 1.5% 3%;
-        background: $main-color-bg-dark;
-        padding: 3%;
-        article {
-          font-size: 0.8rem;
-          padding-right: 7%;
-          h4 {
-            font-weight: 300;
-            font-size: 1rem;
-            width: 150px;
-          }
-        }
-        .price {
-          color: $main-color-yellow;
-          font-weight: 400;
-        }
-        .price::after {
-          content: ' €';
-        }
-      }
+    button {
+        background: $main-color-bg;
+        color: $main-color-white;
+        font-weight: lighter;
+        outline-style: none;
+        border-style: none;
+        cursor: pointer;
+    }
+    button:hover {
+        font-size: 1rem;
+        color: rgba(246, 53, 53, 1);
     }
   }
   ul {
@@ -222,7 +210,8 @@ header {
       padding: 3%;
       article {
         font-size: 0.8rem;
-        padding-right: 7%;
+       /*  padding-right: 7%; */
+        width: 170px;
         h4 {
           font-weight: 300;
           font-size: 1rem;
@@ -235,21 +224,34 @@ header {
       .price::after {
         content: ' €';
       }
-
+      img {
+          cursor: pointer;
+      }
     }
   }
-  .buttonMore {
-    margin-bottom: 15vh;
-    outline-style: none;
-    border-style: none;
-    background: $main-color-bg;
-    color: $main-color-white;
-    font-size: 0.9rem;
-    font-weight: lighter;
-    box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
-    padding: 15px 25%;
-    margin-left: 4%;
-    margin-top: 7%;
+  .buttonM {
+      text-align: center;
+      margin-bottom: 10vh;
+      .buttonMore {
+        outline-style: none;
+        border-style: none;
+        background: $main-color-bg;
+        color: $main-color-white;
+        font-size: 0.9rem;
+        font-weight: lighter;
+        box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
+        padding: 15px 25%;
+        margin: 7% auto;
+        cursor: pointer;
+      }
+      .buttonMore:disabled {
+        background: rgb(94, 91, 91);
+        color: $main-color-bg-dark;
+      }
+      .buttonMore:hover {
+        color: rgba(246, 53, 53, 1);
+        box-shadow: 6px 6px 8px 5px $main-color-bg-dark;
+      }
   }
 }
 /* -------Turnovers-------------- */
@@ -283,23 +285,15 @@ header {
       background: $main-color-bg;
       box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
     }
-  }
-}
-
-.chart {
-  position: relative;
-  .chartText {
-    position: absolute;
-    top: 46.5%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    p {
-      font-size: 40px;
+    input[type="date"]::-webkit-calendar-picker-indicator {
+       cursor: pointer;
+       border-radius: 4px;
+       margin-right: 2px;
+       opacity: 0.6;
+       filter: invert(0.8);
     }
   }
 }
-
 /* Modal */
 #success {
   text-align: center;
@@ -367,28 +361,67 @@ header {
     }
   }
 }
+/* ---------Charts-------------------- */
+.chart {
+  position: relative;
+  .chartText {
+    position: absolute;
+    top: 46.5%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    p {
+      font-size: 40px;
+    }
+  }
+}
 /* -------Footer----------------- */
 .footer {
-  position: fixed;
-  bottom: 0px;
-  background: $main-color-bg;
-  width: 100%;
-  nav {
+    position: fixed;
+    bottom: 0px;
+    height: 10vh;
+    width: 100%;
+    background: url(./img/background_nav.png);
+    background-size: cover;
+    filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
+    /* img {
+        width: 100%;
+        filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
+    } */
+    nav {
     ul {
       display: flex;
       justify-content: space-evenly;
-      align-items: baseline;
+      align-items: center;
+      width: 100%;
+      height: 10vh;
       li {
         list-style-type: none;
-        /* padding-left: 50%; */
         a {
           text-decoration: none;
+        }
+        .wallet {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            img {
+                width: 30px;
+            }
+        }
+        .home {
+            position: absolute;
+            top: 15%;
+            left: 44%;
+        }
+        .charts {
+            position: absolute;
+            top: 40%;
+            left: 75%;
+            img {
+                width: 70px;
+            }
         }
       }
     }
   }
-}
-.charts {
-  fill: 'currentColor';
-  color: red;
 }
