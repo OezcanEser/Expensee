@@ -1,5 +1,11 @@
 import './Style.scss';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import ProtectedRoute from './utils/ProtectedRoute';
 import Charts from './components/Charts';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -11,10 +17,12 @@ const App = () => {
       <div>
         <Switch>
           <Route path='/' exact component={Login} />
-          <Route path='/home' component={Home} />
+          {/* <Route path='/home' component={Home} /> */}
+          <ProtectedRoute path='/home' component={Home} />
+
           <Route path='/charts' component={Charts} />
           <Route path='/turnovers' component={Turnovers} />
-          <Route path='*' render ={ () => <Redirect to = "/home"/>} />
+          <Route path='*' render={() => <Redirect to='/home' />} />
         </Switch>
       </div>
     </Router>

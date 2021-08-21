@@ -1,33 +1,21 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const ErrorHandler = require('./utils/error');
-
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-//passport auth setup
-require('./config/passport_setup');
 
+const express = require('express');
 const app = express();
 
-app.use(
-  cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: [process.env.COOKIE_KEY],
-  })
-);
+const morgan = require('morgan');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const ErrorHandler = require('./utils/error');
 
 app.use(express.json());
-app.use(morgan('dev'));
 app.use(cors());
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(morgan('dev'));
+app.use(cookieParser());
 
-//routes
-app.use('/user', require('./routes/user'));
+app.use('/user', require('./routes/userJwt'));
 app.use('/input', require('./routes/inputs'));
 app.use('/balance', require('./routes/balance'));
 

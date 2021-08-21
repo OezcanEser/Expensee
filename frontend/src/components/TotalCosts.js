@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TotalCosts = ({ heading, total = 0, costs, show }) => {
+const TotalCosts = ({ heading, total, costs, show }) => {
   let costsDetails = costs
     ? costs.map((el) => {
         return (
@@ -14,10 +14,10 @@ const TotalCosts = ({ heading, total = 0, costs, show }) => {
 
   return (
     <>
-        <h3 className="">
-          {heading.toUpperCase(1).slice(0,1) + heading.slice(1)}: {total} €
-        </h3>
-        <ul>{show && costsDetails}</ul>
+      <h3 className=''>
+        {heading.toUpperCase(1).slice(0, 1) + heading.slice(1)}: {total} €
+      </h3>
+      <ul>{show && costsDetails}</ul>
     </>
   );
 };

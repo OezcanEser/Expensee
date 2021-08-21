@@ -4,9 +4,9 @@ const ErrorHandler = require('../utils/error');
 const { calculateBalance } = require('../utils/calculateBalance');
 
 const getUserInputs = asyncHandler(async (req, res, next) => {
-  console.log(req.query)
-  let userId = 1;
-  let offsetIndex = req.query.offset *1;
+  console.log('user from balance ', req.user);
+  let userId = req.user.id;
+  let offsetIndex = req.query.offset * 1;
   let endOfLength = false;
   let rowsCount;
 
@@ -45,7 +45,7 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
 });
 
 const showAll = asyncHandler(async (req, res, next) => {
-  let userId = 1;
+  let userId = req.user.id;
   let { rows } = await db.query('select * from wallets where user_id= $1', [
     userId,
   ]);
@@ -62,7 +62,8 @@ const showAll = asyncHandler(async (req, res, next) => {
 
 const getSummary = asyncHandler(async (req, res, next) => {
   // select distinct category, sum(price) as price from wallets where user_id=1 group by category;
-  let userId = 1;
+  let userId = req.user.id;
+
   let { rows } = await db.query('select * from wallets where user_id = $1', [
     userId,
   ]);

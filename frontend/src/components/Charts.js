@@ -41,7 +41,7 @@ const Charts = () => {
           <TotalCosts
             heading={el}
             total={
-              totalCosts[el].costenSummary
+              totalCosts[el].costenSummary || totalCosts[el].costenSummary >= 0
                 ? totalCosts[el].costenSummary.toFixed(2)
                 : totalCosts[el].toFixed(2)
             }

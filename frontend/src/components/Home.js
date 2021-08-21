@@ -10,7 +10,11 @@ const Home = () => {
   const [showMore, setShowMore] = useState(0);
   const [term, setTerm] = useState('/balance');
   const [idToDelete, setIdToDelete] = useState(null);
-  const [priceData, error, disable] = usePriceData(term, showMore, idToDelete);
+  const [priceData, error, disable, user] = usePriceData(
+    term,
+    showMore,
+    idToDelete
+  );
   const [deleteError, setDeleteError] = useState(null);
 
   const handleMore = () => {
@@ -63,6 +67,8 @@ const Home = () => {
   ) : (
     <Loader />
   );
+
+  console.log('current user: ', user);
 
   return (
     <>

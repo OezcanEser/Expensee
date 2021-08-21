@@ -5,13 +5,14 @@ const { checkInput } = require('../middleware/checkData');
 
 const createInput = asyncHandler(async (req, res, next) => {
   console.log(req.body);
-  let userId = 1;
+  console.log(req.user);
+  let userId = req.user.id;
   let checkInputData = checkInput(req.body);
 
   if (!checkInputData) {
     return next(new ErrorHandler('Please provide all required data!', 400));
   }
-  console.log(typeof req.body.price, req.body.price)
+  console.log(typeof req.body.price, req.body.price);
   let dataToSave = {
     ...req.body,
   };
@@ -39,7 +40,7 @@ const createInput = asyncHandler(async (req, res, next) => {
 });
 
 const deleteInput = asyncHandler(async (req, res, next) => {
-  let userId = 1;
+  let userId = req.user.id;
   let idToDelete = req.params.id;
 
   if (!idToDelete) {

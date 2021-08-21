@@ -1,7 +1,8 @@
-crate table users(
+create table users(
     id Serial PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
-    googleId VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
 );
 create table wallets (
     id Serial PRIMARY KEY,
