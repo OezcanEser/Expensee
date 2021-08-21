@@ -16,7 +16,13 @@ export function usePriceData(term, showMore, idToDelete) {
         setUser(data.user);
         console.log('data from backend: ', data);
       } catch (error) {
-        setError(error.response ? error.response.data.message : error.message);
+        setError(
+          error.response.data.mesage
+            ? error.response.data.message
+            : error.response
+            ? error.response.statusText
+            : error.message
+        );
       }
     }
     getPriceData();

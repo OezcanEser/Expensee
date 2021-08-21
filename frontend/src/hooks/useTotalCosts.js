@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export function useTotalCosts() {
   const [totalCosts, setTotalCosts] = useState(null);
-  const [error, setError] = useState(null);
+  const [errorExists, setErrorExists] = useState(null);
 
   useEffect(() => {
     async function getTotalCosts() {
@@ -11,11 +11,17 @@ export function useTotalCosts() {
         let { data } = await axios.get('/balance/summary');
         setTotalCosts(data.data);
       } catch (error) {
-        setError(error.response ? error.response.data.message : error.message);
+        setErrorExists(
+          error.response.data.mesage
+            ? error.response.data.message
+            : error.response
+            ? error.response.statusText
+            : error.message
+        );
       }
     }
     getTotalCosts();
   }, []);
 
-  return [totalCosts, error];
+  return [totalCosts, errorExists];
 }

@@ -8,7 +8,6 @@ import Loader from './Loader';
 import { useTotalCosts } from '../hooks/useTotalCosts';
 
 const Charts = () => {
-  // const [totalCosts, setTotalCosts] = useState(null);
   const [showCostsDetails, setShowCostsDetails] = useState({
     einkommen: false,
     ausgaben: false,
@@ -16,19 +15,7 @@ const Charts = () => {
     sonstiges: false,
   });
   const [totalCosts, error] = useTotalCosts();
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   async function getTotalCosts() {
-  //     try {
-  //       let { data } = await axios.get('/balance/summary');
-  //       setTotalCosts(data.data);
-  //     } catch (error) {
-  //       setError(error.response ? error.response.data.message : error.message);
-  //     }
-  //   }
-  //   getTotalCosts();
-  // }, []);
+  let totalCostsError = error;
 
   let showTotalCosts = totalCosts ? (
     Object.keys(totalCosts).map((el, index) => {
@@ -55,8 +42,6 @@ const Charts = () => {
     <Loader />
   );
 
-  let errorExists = error && <h2>{error}</h2>;
-
   console.log(totalCosts);
 
   return (
@@ -65,8 +50,8 @@ const Charts = () => {
       <main>
         <section className='statistic'>
           <PieChart />
-          {/*  <Loader /> */}
-          {errorExists}
+
+          {totalCostsError}
           {!error && showTotalCosts}
         </section>
       </main>
