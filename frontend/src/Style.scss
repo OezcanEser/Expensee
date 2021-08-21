@@ -428,7 +428,7 @@ header {
 /* ---------Charts-------------------- */
 .chart {
   position: relative;
-  height: 300px;
+  /* height: 300px; */
   z-index: -1;
   .chartText {
     position: absolute;
@@ -437,7 +437,7 @@ header {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     p {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 }

@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import ModalWallet from "./ModalWallet";
 
 const optionData = [" ", "Einnahmen", "Ausgaben", "Sonstiges"];
-const descriptionData = ["Lebensmittel", "Shopping", "Wohnung", "Restaurant", "Versicherung"]
+const descriptionData = [ "Gehalt", "Lebensmittel", "Shopping", "Wohnung", "Restaurant", "Versicherung"]
 
 const Turnovers = () => {
     const [open, setOpen] = useState(false);
