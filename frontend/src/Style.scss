@@ -81,6 +81,7 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
     box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
     background-color: $main-color-bg-lighter;
     margin-left: 10%;
+    outline-style: none;
     &:hover {
       cursor: pointer;
     }
@@ -99,6 +100,7 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
     border-bottom-style: hidden;
     border-right-style: hidden;
     padding: 1rem;
+    outline-style: none;
   }
 }
 
@@ -425,6 +427,48 @@ header {
     }
   }
 }
+/* Modal error */
+#error {
+  text-align: center;
+  color: $main-color-white;
+  background: $main-color-bg;
+  height: 380px;
+  width: 300px;
+  border-radius: 10px;
+  position: absolute;
+  img {
+    position: relative;
+    top: -30px;
+  }
+  .lineCircle {
+    position: absolute;
+    top: 32%;
+    left: -5px;
+    transform: rotate(90deg);
+    height: 10px;
+    width: 20px;
+    border-radius: 15px 15px 0 0;
+    background-color: #16172e;
+  }
+  .lineCircle2 {
+    position: absolute;
+    top: 32%;
+    right: -5px;
+    transform: rotate(-90deg);
+    height: 10px;
+    width: 20px;
+    border-radius: 15px 15px 0 0;
+    background-color: #16172e;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    position: relative;
+    top: -30px;
+    margin-bottom: 3%;
+  }
+  
+}
 /* ---------Charts-------------------- */
 .chart {
   position: relative;
@@ -513,10 +557,6 @@ header {
   background: url(./img/background_nav.png);
   background-size: cover;
   filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
-  /* img {
-        width: 100%;
-        filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
-    } */
   nav {
     ul {
       display: flex;
