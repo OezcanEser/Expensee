@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import RegisterForm from './RegisterForm';
-import CustomInput from './CustomInput';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
 import Error from './ModalError';
+import LoginComponent from './LoginComponent';
+import RegisterComponent from './RegisterComponent';
 
 const Login = () => {
   const history = useHistory();
@@ -57,6 +57,7 @@ const Login = () => {
         history.push('/home');
       }
     } catch (error) {
+      console.log(error.response);
       setError(errorResponseMessage(error));
     }
   };
@@ -86,75 +87,28 @@ const Login = () => {
   };
 
   let registerForm = register && (
-    <>
-      <RegisterForm submitForm={handleRegister}>
-        <CustomInput
-          placeholder='Username'
-          name='username'
-          value={userData.username}
-          handleChange={handleChange}
-        />
-        <CustomInput
-          placeholder='Email'
-          name='email'
-          value={userData.email}
-          handleChange={handleChange}
-        />
-        <CustomInput
-          placeholder='Password'
-          name='password'
-          value={userData.password}
-          handleChange={handleChange}
-          type='password'
-        />
-        <CustomInput
-          placeholder='Repeat Password'
-          name='password2'
-          value={userData.password2}
-          handleChange={handleChange}
-          type='password'
-        />
-      </RegisterForm>
-      <div style={{ marginTop: '10px' }}>
-        Already have an account?{' '}
-        <span
-          style={{ cursor: 'pointer', color: '#efb722' }}
-          onClick={() => setRegister(false)}
-        >
-          Login here
-        </span>
-      </div>
-    </>
+    <RegisterComponent
+      username={userData.username}
+      email={userData.email}
+      password={userData.password}
+      password2={userData.password2}
+      handleRegister={handleRegister}
+      handleChange={handleChange}
+      onClick={() => setRegister(false)}
+    />
   );
 
   let loginForm = !register && (
-    <>
-      <RegisterForm submitForm={handleLogin}>
-        <CustomInput
-          placeholder='Email'
-          name='email'
-          value={userData.email}
-          handleChange={handleChange}
-        />
-        <CustomInput
-          placeholder='Password'
-          name='password'
-          value={userData.password}
-          handleChange={handleChange}
-          type='password'
-        />
-      </RegisterForm>
-      <div style={{ marginTop: '10px' }}>
-        Don't have an Account?{' '}
-        <span
-          style={{ cursor: 'pointer', color: '#efb722' }}
-          onClick={() => setRegister(true)}
-        >
-          Register here
-        </span>
-      </div>
-    </>
+    <LoginComponent
+      email={userData.email}
+      password={userData.password}
+      handleLogin={handleLogin}
+      onClick={() => setRegister(true)}
+      handleChange={handleChange}
+    />
   );
+
+  console.log(userData);
 
   return (
     <section className='login'>
