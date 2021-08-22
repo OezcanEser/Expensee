@@ -23,6 +23,7 @@ body {
   font-family: 'Lato', sans-serif;
   background: $main-color-bg;
 }
+
 .Loader {
   div {
     width: 200px;
@@ -566,10 +567,9 @@ header {
 .footer {
   position: fixed;
   bottom: 0px;
-  height: 10vh;
+  height: 11vh;
   width: 100%;
-  background: url(./img/background_nav.png);
-  background-size: cover;
+  background: url(./img/background_nav.png) center/ cover no-repeat;
   filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
   nav {
     ul {
@@ -594,7 +594,7 @@ header {
         .home {
           position: absolute;
           top: 15%;
-          left: 44%;
+          left: 43%;
         }
         .charts {
           position: absolute;
@@ -607,4 +607,96 @@ header {
       }
     }
   }
+}
+
+/* ------ media queries------------ */
+
+@media screen and (min-width: 320px) {
+    /* -------Footer----------------- */
+.footer {
+  nav {
+    ul {
+      li {
+        .wallet {
+          top: 22%;
+          left: 13%;
+          img {
+            width: 25px;
+          }
+        }
+        .home {
+          top: 15%;
+          left: 41%;
+        }
+        .charts {
+          top: 37%;
+          left: 72%;
+          img {
+            width: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+@media screen and (min-width: 375px) {
+      /* -------Footer----------------- */
+.footer {
+  nav {
+    ul {
+      li {
+        .wallet {
+          top: 20%;
+          left: 13%;
+          img {
+            width: 30px;
+          }
+        }
+        .home {
+          top: 15%;
+          left: 42%;
+        }
+        .charts {
+          top: 37%;
+          left: 72%;
+          img {
+            width: 70px;
+          }
+        }
+      }
+    }
+  }
+}
+}
+@media screen and (min-width: 425px) {
+
+  /* -------Footer----------------- */
+.footer {
+nav {
+ul {
+  li {
+    .wallet {
+      top: 20%;
+      left: 13%;
+      img {
+        width: 30px;
+      }
+    }
+    .home {
+      top: 15%;
+      left: 43%;
+    }
+    .charts {
+      top: 38%;
+      left: 72%;
+      img {
+        width: 72px;
+      }
+    }
+  }
+}
+}
+}
 }

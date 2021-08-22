@@ -26,7 +26,6 @@ const App = () => {
             component={() => (user ? <Redirect to='/home' /> : <Login />)}
           />
           <ProtectedRoute path='/home' component={Home} />
-
           <ProtectedRoute path='/charts' component={Charts} />
           <ProtectedRoute path='/turnovers' component={Turnovers} />
           <Route path='*' render={() => <Redirect to='/home' />} />
