@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUserData } from '../state/actions/userData';
+import { removeError } from '../state/actions/removeError';
 import Header from './Header';
 import Footer from './Footer';
 import ModalWallet from './ModalWallet';
 import Error from './ModalError';
-import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const optionData = [' ', 'Einnahmen', 'Ausgaben', 'Sonstiges'];
 const descriptionData = [
@@ -18,7 +19,10 @@ const descriptionData = [
 ];
 
 const Turnovers = () => {
-  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const { error, open } = useSelector((state) => state.userDataReducer);
+
   const [data, setData] = useState('');
   const [inputs, setInputs] = useState({
     category: '',
@@ -26,13 +30,12 @@ const Turnovers = () => {
     price: '',
     created_at: '',
   });
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     let close;
     if (open) {
       close = setTimeout(() => {
-        setOpen(false);
+        dispatch(removeError);
         setInputs({ category: '', description: '', price: '', created_at: '' });
       }, 4000);
     }
@@ -43,7 +46,7 @@ const Turnovers = () => {
     let close;
     if (error) {
       close = setTimeout(() => {
-        setError(null);
+        dispatch(removeError);
       }, 3000);
     }
     return () => clearTimeout(close);
@@ -77,19 +80,18 @@ const Turnovers = () => {
 
   const newTransfer = async (event) => {
     event.preventDefault();
-    try {
-      let { data } = await axios.post('/input', inputs);
-      if (data.success) {
-        setOpen(true);
-      }
-    } catch (error) {
-      setError(errorResponseMessage(error));
-    }
+    dispatch(
+      createUserData(
+        inputs.category,
+        inputs.description,
+        inputs.price,
+        inputs.created_at
+      )
+    );
   };
 
   const handleClose = () => {
-    setOpen(false);
-    setError(null);
+    dispatch(removeError());
   };
 
   return (
