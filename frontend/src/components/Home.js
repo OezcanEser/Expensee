@@ -3,8 +3,10 @@ import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
 import Loader from './Loader';
+import Error from '../components/ModalError';
 
 import { usePriceData } from '../hooks/usePriceData';
+import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const Home = () => {
   const [showMore, setShowMore] = useState(0);
@@ -15,7 +17,7 @@ const Home = () => {
     showMore,
     idToDelete
   );
-  const [deleteError, setDeleteError] = useState(null);
+  const [deleteInputError, setDeleteInputError] = useState(null);
 
   const handleMore = () => {
     setShowMore((prev) => prev + 7);
@@ -27,10 +29,12 @@ const Home = () => {
       setIdToDelete(id);
     } catch (error) {
       console.log(error);
-      setDeleteError(
-        error.response ? error.response.data.message : error.message
-      );
+      setDeleteInputError(errorResponseMessage(error));
     }
+  };
+
+  const handleClose = () => {
+    setDeleteInputError(null);
   };
 
   let showPrices = priceData ? (
@@ -68,8 +72,6 @@ const Home = () => {
     <Loader />
   );
 
-  console.log('current user: ', user);
-
   return (
     <>
       <Header title='Übersicht' />
@@ -77,6 +79,7 @@ const Home = () => {
         <section className='overview'>
           <div className='overviewHead'>
             <h3>Letzte Transaktionen</h3>
+            {user && user.username}
             <button onClick={() => setTerm('/balance/all')}>Show full</button>
           </div>
           <ul>{showPrices}</ul>
@@ -90,6 +93,19 @@ const Home = () => {
             </button>
           </div>
         </section>
+        {deleteInputError ? (
+          <Error
+            open={deleteInputError ? true : false}
+            error={deleteInputError}
+            onClose={handleClose}
+          />
+        ) : error ? (
+          <Error
+            open={error ? true : false}
+            error={error}
+            onClose={handleClose}
+          />
+        ) : null}
       </main>
       <Footer />
     </>

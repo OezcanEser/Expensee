@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const PieChart = () => {
@@ -10,7 +10,6 @@ const PieChart = () => {
     async function getTotalCosts() {
       let { data } = await axios.get('/balance/summary');
       setTotalCosts(data.data);
-      console.log(totalCosts);
     }
     getTotalCosts();
   }, []);

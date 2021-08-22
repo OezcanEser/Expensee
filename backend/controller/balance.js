@@ -37,7 +37,10 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
   }
 
   res.status(200).json({
-    user: req.user,
+    user: {
+      username: req.user.username,
+      email: req.user.email,
+    },
     success: true,
     endOfLength,
     data: rows,
