@@ -23,7 +23,6 @@ let protect = asyncHandler(async (req, res, next) => {
 
   try {
     const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-    console.log('decoded: ', decoded);
     let { rows } = await db.query('select * from users where id=$1', [
       decoded.id,
     ]);
