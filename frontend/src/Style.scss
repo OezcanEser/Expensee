@@ -180,10 +180,12 @@ header {
         li {
           padding-top: 20%;
         }
-        a {
+        a,
+        span {
           text-decoration: none;
           color: $main-color-white;
           font-weight: 300;
+          cursor: pointer;
         }
       }
     }
@@ -467,7 +469,6 @@ header {
     top: -30px;
     margin-bottom: 3%;
   }
-  
 }
 /* ---------Charts-------------------- */
 .chart {

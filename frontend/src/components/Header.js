@@ -1,10 +1,44 @@
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import Error from '../components/ModalError';
+import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const Header = (props) => {
+  const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState(null);
   const ref = useRef();
   useOnClickOutside(ref, () => setIsOpen(false));
+
+  const logoutUser = async () => {
+    try {
+      let { data } = await axios.get('/user/logout');
+      if (data.success) {
+        sessionStorage.clear();
+        history.push('/');
+      }
+    } catch (error) {
+      setError(errorResponseMessage(error));
+    }
+  };
+
+  useEffect(() => {
+    let close;
+    if (error) {
+      close = setTimeout(() => {
+        setError(null);
+      }, 3000);
+    }
+    return () => clearTimeout(close);
+  }, [error]);
+
+  const handleClose = () => {
+    setError(null);
+  };
+
   return (
     <header>
       <section className='menu'>
@@ -41,14 +75,21 @@ const Header = (props) => {
               </Link>
             </li>
             <li>
-              <Link to='/' onClick={() => setIsOpen(false)}>
+              <span
+                onClick={() => {
+                  setIsOpen(false);
+                  logoutUser();
+                }}
+              >
                 {' '}
                 Logout
-              </Link>
+              </span>
             </li>
           </ul>
         </nav>
       </section>
+
+      <Error open={error ? true : false} error={error} onClose={handleClose} />
     </header>
   );
 };
