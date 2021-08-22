@@ -4,6 +4,7 @@ import Header from './Header';
 import TotalCosts from './TotalCosts';
 import PieChart from './PieChart';
 import Loader from './Loader';
+import Error from '../components/ModalError';
 
 import { useTotalCosts } from '../hooks/useTotalCosts';
 
@@ -42,8 +43,6 @@ const Charts = () => {
     <Loader />
   );
 
-  console.log(totalCosts);
-
   return (
     <>
       <Header title='Statistik' />
@@ -51,7 +50,10 @@ const Charts = () => {
         <section className='statistic'>
           <PieChart />
 
-          {totalCostsError}
+          <Error
+            open={totalCostsError ? true : false}
+            error={totalCostsError}
+          />
           {!error && showTotalCosts}
         </section>
       </main>

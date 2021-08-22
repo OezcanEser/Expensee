@@ -1,7 +1,5 @@
 export function errorResponseMessage(error) {
-  return error.response.data.mesage
+  return error.response
     ? error.response.data.message
-    : error.response
-    ? error.response.statusText
-    : error.message;
+    : error.message || 'Unknown Error!';
 }

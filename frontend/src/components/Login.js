@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import RegisterForm from './RegisterForm';
 import CustomInput from './CustomInput';
+import { errorResponseMessage } from '../utils/errorResponseMessage';
+import Error from './ModalError';
 
 const Login = () => {
   const history = useHistory();
@@ -17,6 +19,16 @@ const Login = () => {
     password2: '',
   });
 
+  useEffect(() => {
+    let close;
+    if (error) {
+      close = setTimeout(() => {
+        setError(null);
+      }, 3000);
+    }
+    return () => clearTimeout(close);
+  }, [error]);
+
   const handleChange = (e) => {
     setUserData((prev) => {
       return {
@@ -26,7 +38,7 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     let dataToSave = {
       ...userData,
@@ -45,13 +57,7 @@ const Login = () => {
         history.push('/home');
       }
     } catch (error) {
-      setError(
-        error.response.data.mesage
-          ? error.response.data.message
-          : error.response
-          ? error.response.statusText
-          : error.message
-      );
+      setError(errorResponseMessage(error));
     }
   };
 
@@ -71,21 +77,17 @@ const Login = () => {
         history.push('/home');
       }
     } catch (error) {
-      setError(
-        error.response.data.mesage
-          ? error.response.data.message
-          : error.response
-          ? error.response.statusText
-          : error.message
-      );
+      setError(errorResponseMessage(error));
     }
   };
 
-  console.log(error);
+  const handleClose = () => {
+    setError(null);
+  };
 
   let registerForm = register && (
     <>
-      <RegisterForm submitForm={handleSubmit}>
+      <RegisterForm submitForm={handleRegister}>
         <CustomInput
           placeholder='Username'
           name='username'
@@ -180,6 +182,7 @@ const Login = () => {
       )}
       {showForm && registerForm}
       {showForm && loginForm}
+      <Error open={error ? true : false} error={error} onClose={handleClose} />
     </section>
   );
 };
