@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { errorResponseMessage } from '../utils/errorResponseMessage';
+
 export function usePriceData(term, showMore, idToDelete) {
   const [priceData, setPriceData] = useState();
   const [error, setError] = useState(null);
@@ -16,13 +18,7 @@ export function usePriceData(term, showMore, idToDelete) {
         setUser(data.user);
         console.log('data from backend: ', data);
       } catch (error) {
-        setError(
-          error.response.data.mesage
-            ? error.response.data.message
-            : error.response
-            ? error.response.statusText
-            : error.message
-        );
+        setError(errorResponseMessage(error));
       }
     }
     getPriceData();
