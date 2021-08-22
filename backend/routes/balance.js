@@ -9,7 +9,3 @@ router.route('/all').get(protect, showAll);
 router.route('/summary').get(protect, getSummary);
 
 module.exports = router;
-
-// balance routes:
-//  / get > response {  user: req.user, success: true, endOfLength, data: rows -> Array,}
-// /summary get > response {data: obj,}

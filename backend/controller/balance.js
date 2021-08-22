@@ -4,7 +4,6 @@ const ErrorHandler = require('../utils/error');
 const { calculateBalance } = require('../utils/calculateBalance');
 
 const getUserInputs = asyncHandler(async (req, res, next) => {
-  console.log('user from balance ', req.user);
   let userId = req.user.id;
   let offsetIndex = req.query.offset * 1;
   let endOfLength = false;

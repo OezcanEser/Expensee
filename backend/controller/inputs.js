@@ -4,8 +4,6 @@ const asyncHandler = require('../utils/asyncHandler');
 const { checkInput } = require('../middleware/checkData');
 
 const createInput = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
-  console.log(req.user);
   let userId = req.user.id;
   let checkInputData = checkInput(req.body);
 
