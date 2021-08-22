@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-import { errorResponseMessage } from '../utils/errorResponseMessage';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser, loginUser } from '../state/actions/user';
+import { removeError } from '../state/actions/removeError';
 import Error from './ModalError';
 import LoginComponent from './LoginComponent';
 import RegisterComponent from './RegisterComponent';
 
 const Login = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const { error } = useSelector((state) => state.userReducer);
 
   const [showForm, setShowForm] = useState(false);
   const [register, setRegister] = useState(true);
-  const [error, setError] = useState(null);
   const [userData, setUserData] = useState({
     username: '',
     email: '',
@@ -23,7 +26,7 @@ const Login = () => {
     let close;
     if (error) {
       close = setTimeout(() => {
-        setError(null);
+        dispatch(removeError);
       }, 3000);
     }
     return () => clearTimeout(close);
@@ -40,50 +43,21 @@ const Login = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    let dataToSave = {
-      ...userData,
-    };
-    try {
-      if (userData.password !== userData.password2) {
-        throw new Error('Password does not match!');
-      }
 
-      let { data } = await axios.post('/user/register', dataToSave);
-
-      if (data.user) {
-        window.sessionStorage.clear();
-
-        window.sessionStorage.setItem('user', JSON.stringify(data.user));
-        history.push('/home');
-      }
-    } catch (error) {
-      console.log(error.response);
-      setError(errorResponseMessage(error));
-    }
+    dispatch(
+      registerUser(
+        userData.username,
+        userData.email,
+        userData.password,
+        userData.password2,
+        history
+      )
+    );
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    let dataToSave = {
-      email: userData.email,
-      password: userData.password,
-    };
-    try {
-      let { data } = await axios.post('/user/login', dataToSave);
-
-      if (data.user) {
-        window.sessionStorage.clear();
-
-        window.sessionStorage.setItem('user', JSON.stringify(data.user));
-        history.push('/home');
-      }
-    } catch (error) {
-      setError(errorResponseMessage(error));
-    }
-  };
-
-  const handleClose = () => {
-    setError(null);
+    dispatch(loginUser(userData.email, userData.password, history));
   };
 
   let registerForm = register && (
@@ -136,7 +110,11 @@ const Login = () => {
       )}
       {showForm && registerForm}
       {showForm && loginForm}
-      <Error open={error ? true : false} error={error} onClose={handleClose} />
+      <Error
+        open={error ? true : false}
+        error={error}
+        onClose={() => dispatch(removeError)}
+      />
     </section>
   );
 };

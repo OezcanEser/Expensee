@@ -17,7 +17,9 @@ const Header = (props) => {
       let { data } = await axios.get('/user/logout');
       if (data.success) {
         await sessionStorage.clear();
-        history.push('/');
+        if (!sessionStorage.getItem('user')) {
+          history.push('/');
+        }
       }
     } catch (error) {
       console.log(error.response);
