@@ -1,40 +1,64 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
 import Loader from './Loader';
 import Error from '../components/ModalError';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPriceData, deletePriceData } from '../state/actions/priceData';
+import { removeError } from '../state/actions/removeError';
 
 import { usePriceData } from '../hooks/usePriceData';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { priceData, error, disable, user } = useSelector(
+    (state) => state.priceDataReducer
+  );
+
   const [showMore, setShowMore] = useState(0);
   const [term, setTerm] = useState('/balance');
   const [idToDelete, setIdToDelete] = useState(null);
-  const [priceData, error, disable, user] = usePriceData(
-    term,
-    showMore,
-    idToDelete
-  );
+  // const [priceData, error, disable, user] = usePriceData(
+  //   term,
+  //   showMore,
+  //   idToDelete
+  // );
   const [deleteInputError, setDeleteInputError] = useState(null);
+
+  useEffect(() => {
+    dispatch(getPriceData(term, showMore));
+  }, [term, showMore]);
+
+  useEffect(() => {
+    let close;
+    if (error) {
+      close = setTimeout(() => {
+        dispatch(removeError);
+      }, 3000);
+    }
+    return () => clearTimeout(close);
+  }, [error]);
 
   const handleMore = () => {
     setShowMore((prev) => prev + 7);
   };
 
   const deleteTransfer = async (id) => {
-    try {
-      await axios.delete(`/input/${id}`);
-      setIdToDelete(id);
-    } catch (error) {
-      console.log(error);
-      setDeleteInputError(errorResponseMessage(error));
-    }
+    dispatch(deletePriceData(id));
+    // try {
+    //   await axios.delete(`/input/${id}`);
+    //   setIdToDelete(id);
+    // } catch (error) {
+    //   console.log(error);
+    //   setDeleteInputError(errorResponseMessage(error));
+    // }
   };
 
   const handleClose = () => {
-    setDeleteInputError(null);
+    dispatch(removeError);
+    // setDeleteInputError(null);
   };
 
   let showPrices = priceData ? (
@@ -93,13 +117,15 @@ const Home = () => {
             </button>
           </div>
         </section>
-        {deleteInputError ? (
+        {/* {deleteInputError ? (
           <Error
             open={deleteInputError ? true : false}
             error={deleteInputError}
             onClose={handleClose}
           />
-        ) : error ? (
+        ) :  */}
+
+        {error ? (
           <Error
             open={error ? true : false}
             error={error}

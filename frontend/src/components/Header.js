@@ -1,44 +1,36 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../state/actions/user';
+import { removeError } from '../state/actions/removeError';
 import Error from '../components/ModalError';
-import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const Header = (props) => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { error } = useSelector((state) => state.userReducer);
+
   const [isOpen, setIsOpen] = useState(false);
-  const [error, setError] = useState(null);
   const ref = useRef();
   useOnClickOutside(ref, () => setIsOpen(false));
 
-  const logoutUser = async () => {
-    try {
-      let { data } = await axios.get('/user/logout');
-      if (data.success) {
-        await sessionStorage.clear();
-        if (!sessionStorage.getItem('user')) {
-          history.push('/');
-        }
-      }
-    } catch (error) {
-      console.log(error.response);
-      setError(errorResponseMessage(error));
-    }
+  const logout = async () => {
+    dispatch(logoutUser(history));
   };
 
   useEffect(() => {
     let close;
     if (error) {
       close = setTimeout(() => {
-        setError(null);
+        dispatch(removeError);
       }, 3000);
     }
     return () => clearTimeout(close);
   }, [error]);
 
   const handleClose = () => {
-    setError(null);
+    dispatch(removeError);
   };
 
   return (
@@ -80,7 +72,7 @@ const Header = (props) => {
               <span
                 onClick={() => {
                   setIsOpen(false);
-                  logoutUser();
+                  logout();
                 }}
               >
                 {' '}

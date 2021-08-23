@@ -57,12 +57,20 @@ export const loginUser = (email, password, history) => async (dispatch) => {
   }
 };
 
-export const logout = () => async (dispatch) => {
+export const logoutUser = (history) => async (dispatch) => {
   try {
-    sessionStorage.clear();
-
     let { data } = await axios.get('/user/logout');
-
-    dispatch({ type: LOGOUT, payload: data });
-  } catch (error) {}
+    if (data.success) {
+      await sessionStorage.clear();
+      if (!sessionStorage.getItem('user')) {
+        history.push('/');
+      }
+    }
+    dispatch({ type: LOGOUT });
+  } catch (error) {
+    dispatch({
+      type: FAILURE,
+      payload: errorResponseMessage(error),
+    });
+  }
 };
