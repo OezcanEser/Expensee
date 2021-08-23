@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Footer from './Footer';
-import Header from './Header';
-import Loader from './Loader';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Loader from '../components/Loader';
 import Error from '../components/ModalError';
 
 import { usePriceData } from '../hooks/usePriceData';
@@ -77,9 +77,10 @@ const Home = () => {
       <Header title='Übersicht' />
       <main>
         <section className='overview'>
+          <h2>Hallo  {user && user.username} !</h2>
           <div className='overviewHead'>
             <h3>Letzte Transaktionen</h3>
-            {user && user.username}
+           
             <button onClick={() => setTerm('/balance/all')}>Show full</button>
           </div>
           <ul>{showPrices}</ul>

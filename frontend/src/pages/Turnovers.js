@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from './Header';
-import Footer from './Footer';
-import ModalWallet from './ModalWallet';
-import Error from './ModalError';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ModalWallet from '../components/ModalWallet';
+import Error from '../components/ModalError';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const optionData = [' ', 'Einnahmen', 'Ausgaben', 'Sonstiges'];

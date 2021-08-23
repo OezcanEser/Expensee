@@ -6,10 +6,10 @@ import {
   Redirect,
 } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
-import Charts from './components/Charts';
-import Home from './components/Home';
-import Login from './components/Login';
-import Turnovers from './components/Turnovers';
+import Charts from './pages/Charts';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Turnovers from './pages/Turnovers';
 
 const App = () => {
   let user = sessionStorage.getItem('user')
