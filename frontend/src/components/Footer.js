@@ -1,49 +1,37 @@
-import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useHistory } from 'react-router-dom';
+import { footerData } from '../data/foterData';
 
 const Footer = () => {
-    const [pathname, setPathname] = useState('/turnovers' || '/home' || '/charts')
-    const location = useLocation();
+  const history = useHistory();
+  const myLocation = history.location.pathname;
 
-    useEffect(() => {
-        setPathname(location.pathname);
-    }, [location]);
-    
-    return (
-        <footer className="footer">
-            <nav>
-                <ul>
-                    <li>
-                        <NavLink className="wallet" to="/turnovers">
-                            {   pathname === '/turnovers' ? 
-                                (<img src="./img/wallet_active.png" alt="wallet" />)
-                                :
-                                (<img src="./img/wallet.png" alt="wallet" />)  
-                            }
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="home" to="/home">
-                            {   pathname === '/home' ? 
-                                (<img src="./img/home_button_active.png" alt="home" />)
-                                :
-                                (<img src="./img/home_button.png" alt="home" />)  
-                            }
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="charts" to="/charts">
-                            {   pathname === '/charts' ? 
-                                (<img src="./img/chart_active.png" alt="charts" />)
-                                :
-                                (<img src="./img/charts.png" alt="charts" />)  
-                            }
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
-    );
-}
+  return (
+    <footer className='footer'>
+      <nav>
+        <ul>
+          {footerData.map((item, i) => {
+            return (
+              <li key={Math.random()}>
+                <NavLink className={item.className} to={item.to}>
+                  {item.location !== myLocation ? (
+                    <img
+                      src={`./img/nav-bild-${i + 1}.png`}
+                      alt={item.className}
+                    />
+                  ) : (
+                    <img
+                      src={`./img/nav-bild-active-${i + 1}.png`}
+                      alt={item.className}
+                    />
+                  )}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </footer>
+  );
+};
 
 export default Footer;

@@ -48,7 +48,7 @@ const Home = () => {
             backgroundColor:
               transfer.category === 'Einnahmen' ? '#00FF00' : '#F63535',
           }}
-        ></div>
+        />
         <article>
           <h4>{transfer.description}</h4>
           <p>
