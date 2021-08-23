@@ -33,7 +33,7 @@ const PieChart = () => {
       </div>
       <Pie
         data={{
-          labels: ['Einnahmen', 'Ausgaben', 'Sparen', 'Sonstiges'],
+          labels: ['Einkommen', 'Ausgaben', 'Sparen', 'Sonstiges'],
           datasets: [
             {
               label: '# of votes',
