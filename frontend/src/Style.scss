@@ -494,7 +494,8 @@ header {
   /* height: 300px; */
   z-index: -1;
   canvas {
-    width: 350px;
+    /* width: 350px; */
+    height: 150px;
   }
   .chartText {
     position: absolute;
@@ -550,8 +551,8 @@ header {
   h3 {
     background: linear-gradient(
       90deg,
-      rgba(246, 53, 53, 1) 0%,
-      rgba(255, 0, 157, 1) 40%
+      rgba(246, 53, 53, 1) 20%,
+      rgba(255, 0, 157, 1) 60%
     );
   }
 }
