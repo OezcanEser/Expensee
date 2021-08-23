@@ -16,11 +16,10 @@ const Header = (props) => {
     try {
       let { data } = await axios.get('/user/logout');
       if (data.success) {
-        await sessionStorage.clear();
+        sessionStorage.clear();
         history.push('/');
       }
     } catch (error) {
-      console.log(error.response);
       setError(errorResponseMessage(error));
     }
   };
