@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, loginUser } from '../state/actions/user';
+import { registerUser, loginUser, logoutUser } from '../state/actions/user';
 import { removeError } from '../state/actions/removeError';
 import Error from './ModalError';
 import LoginComponent from './LoginComponent';
@@ -83,6 +83,28 @@ const Login = () => {
   );
 
   console.log(userData);
+
+  const userDataFromStorage = sessionStorage.getItem('user')
+    ? sessionStorage.getItem('user')
+    : null;
+
+  if (userDataFromStorage) {
+    return (
+      <section className='login'>
+        <h1>Expensee</h1>
+
+        <div className='RegisterLogin'>
+          <div
+            onClick={() => {
+              dispatch(logoutUser(history));
+            }}
+          >
+            LOGOUT
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className='login'>

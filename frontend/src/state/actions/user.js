@@ -61,10 +61,8 @@ export const logoutUser = (history) => async (dispatch) => {
   try {
     let { data } = await axios.get('/user/logout');
     if (data.success) {
-      await sessionStorage.clear();
-      if (!sessionStorage.getItem('user')) {
-        history.push('/');
-      }
+      sessionStorage.clear();
+      history.push('/');
     }
     dispatch({ type: LOGOUT });
   } catch (error) {

@@ -1,22 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import TotalCosts from './TotalCosts';
 import PieChart from './PieChart';
 import Loader from './Loader';
 import Error from '../components/ModalError';
-
-import { useTotalCosts } from '../hooks/useTotalCosts';
+import { useSelector, useDispatch } from 'react-redux';
+import { getTotalCosts } from '../state/actions/totalCosts';
 
 const Charts = () => {
+  const dispatch = useDispatch();
+  const { totalCosts, error } = useSelector((state) => state.totalCostsReducer);
+
   const [showCostsDetails, setShowCostsDetails] = useState({
     einkommen: false,
     ausgaben: false,
     sparen: false,
     sonstiges: false,
   });
-  const [totalCosts, error] = useTotalCosts();
-  let totalCostsError = error;
+
+  useEffect(() => {
+    dispatch(getTotalCosts());
+  }, []);
 
   let showTotalCosts = totalCosts ? (
     Object.keys(totalCosts).map((el, index) => {
@@ -50,10 +55,7 @@ const Charts = () => {
         <section className='statistic'>
           <PieChart />
 
-          <Error
-            open={totalCostsError ? true : false}
-            error={totalCostsError}
-          />
+          <Error open={error ? true : false} error={error} />
           {!error && showTotalCosts}
         </section>
       </main>

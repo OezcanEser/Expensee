@@ -35,6 +35,7 @@ const Turnovers = () => {
     let close;
     if (open) {
       close = setTimeout(() => {
+        dispatch(removeError);
         setInputs({ category: '', description: '', price: '', created_at: '' });
       }, 4000);
     }
