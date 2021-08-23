@@ -90,6 +90,7 @@ const Home = () => {
                 className='buttonMore'
                 onClick={handleMore}
                 disabled={disable}
+                hidden={disable && disable}
               >
                 MEHR TRANSAKTIONEN
               </button>
