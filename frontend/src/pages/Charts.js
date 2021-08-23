@@ -49,12 +49,7 @@ const Charts = () => {
       <main>
         <section className='statistic'>
           <PieChart />
-
-          <Error
-            open={totalCostsError ? true : false}
-            error={totalCostsError}
-          />
-          {!error && showTotalCosts}
+          {!error && showTotalCosts} }
         </section>
       </main>
       <Footer />
