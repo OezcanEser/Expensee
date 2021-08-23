@@ -12,19 +12,11 @@ import Login from './pages/Login';
 import Turnovers from './pages/Turnovers';
 
 const App = () => {
-  let user = sessionStorage.getItem('user')
-    ? sessionStorage.getItem('user')
-    : null;
-
   return (
     <Router>
       <div>
         <Switch>
-          <Route
-            path='/'
-            exact
-            component={() => (user ? <Redirect to='/home' /> : <Login />)}
-          />
+          <Route path='/' exact component={Login} />
           <ProtectedRoute path='/home' component={Home} />
           <ProtectedRoute path='/charts' component={Charts} />
           <ProtectedRoute path='/turnovers' component={Turnovers} />

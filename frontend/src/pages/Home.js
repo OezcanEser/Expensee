@@ -77,21 +77,23 @@ const Home = () => {
       <Header title='Übersicht' />
       <main>
         <section className='overview'>
-          <h2>Hallo  {user && user.username} !</h2>
+          <h2>Hallo {user && user.username} !</h2>
           <div className='overviewHead'>
             <h3>Letzte Transaktionen</h3>
-           
+
             <button onClick={() => setTerm('/balance/all')}>Show full</button>
           </div>
           <ul>{showPrices}</ul>
           <div className='buttonM'>
-            <button
-              className='buttonMore'
-              onClick={handleMore}
-              disabled={disable}
-            >
-              MEHR TRANSAKTIONEN
-            </button>
+            {term !== '/balance/all' && (
+              <button
+                className='buttonMore'
+                onClick={handleMore}
+                disabled={disable}
+              >
+                MEHR TRANSAKTIONEN
+              </button>
+            )}
           </div>
         </section>
         {deleteInputError ? (
