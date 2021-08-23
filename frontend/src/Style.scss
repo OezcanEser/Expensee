@@ -13,6 +13,30 @@ $main-color-green: #33d27b;
 $color-transaction-green: #00ff00;
 $color-transaction-red: #f63535;
 
+%button_style {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 2%;
+  background: $main-color-bg;
+  color: $main-color-white;
+  outline-style: none;
+  border-style: none;
+  box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+%input_style {
+  width: 100%;
+  height: 50px;
+  padding: 5%;
+  background: $main-color-bg-dark;
+  color: $main-color-white;
+  outline-style: none;
+  border-style: none;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +48,7 @@ body {
   background: $main-color-bg;
 }
 
+/* Animation Loader */
 .Loader {
   div {
     width: 200px;
@@ -65,62 +90,44 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
   }
 }
 
-// Register Form
+/* Register Form */
 
 .RegisterForm {
   margin-top: 4rem;
   width: 400px;
   input[type='submit'] {
-    display: block;
-    color: $main-color-white;
-    font-weight: 300;
-    margin-top: 20%;
-    width: 80%;
-    padding: 10px 50px;
-    border-top-style: hidden;
-    border-left-style: hidden;
-    box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
-    background-color: $main-color-bg-lighter;
-    margin-left: 10%;
-    outline-style: none;
+    @extend%button_style;
     &:hover {
       cursor: pointer;
     }
   }
 }
 
-// Custom input
+/* Custom input */
 
 .CustomInput {
   margin-bottom: 2rem;
   input {
-    background-color: $main-color-bg-dark;
-    display: block;
-    color: $main-color-grey;
-    width: 100%;
-    border-bottom-style: hidden;
-    border-right-style: hidden;
-    padding: 1rem;
-    outline-style: none;
+    @extend%input_style;
   }
 }
 
-//Register Login Button
+/* Register Login Button */
 
 .RegisterLogin {
   div {
+    @extend%button_style;
+    width: 300px;
     text-align: center;
-    text-transform: uppercase;
-    width: 250px;
-    background-color: $main-color-bg-lighter;
-    padding: 2rem;
+    padding: 1rem;
     margin-top: 2rem;
-    cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
     &:hover {
       color: #efb722;
     }
+  }
+  div:first-of-type {
+    margin-top: 40%;
   }
 }
 
@@ -233,19 +240,12 @@ header {
     font-weight: 400;
     margin-top: 30%;
   }
-  a {
-    text-decoration: none;
-    color: $main-color-white;
-    font-weight: 300;
-    margin-top: 20%;
-    padding: 10px 50px;
-    box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
-  }
 }
 /* -------Home------------------- */
 .overview {
   color: $main-color-white;
   font-weight: 200;
+  margin-bottom: 10vh;
   h2 {
     margin-left: 5%;
     font-weight: 400;
@@ -269,10 +269,11 @@ header {
     }
     button:hover {
       font-size: 1rem;
-      color: rgba(246, 53, 53, 1);
+      color: $color-transaction-red;
     }
   }
   ul {
+    padding-bottom: 4vh;
     li {
       display: flex;
       justify-content: space-between;
@@ -282,8 +283,7 @@ header {
       padding: 3%;
       article {
         font-size: 0.8rem;
-        /*  padding-right: 7%; */
-        width: 170px;
+        width: 150px;
         h4 {
           font-weight: 300;
           font-size: 1rem;
@@ -300,32 +300,24 @@ header {
         cursor: pointer;
       }
       img:hover {
-        background: #f63535;
+        background: $color-transaction-red;
         border-radius: 50%;
       }
     }
   }
   .buttonM {
     text-align: center;
-    margin-bottom: 10vh;
+    margin-left: 3%;
+    margin-right: 3%;
     .buttonMore {
-      outline-style: none;
-      border-style: none;
-      background: $main-color-bg;
-      color: $main-color-white;
-      font-size: 0.9rem;
-      font-weight: lighter;
-      box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
-      padding: 15px 25%;
-      margin: 7% auto;
-      cursor: pointer;
+      @extend%button_style;
     }
     .buttonMore:disabled {
-      background: rgb(94, 91, 91);
+      background: $main-color-grey;
       color: $main-color-bg-dark;
     }
     .buttonMore:hover {
-      color: rgba(246, 53, 53, 1);
+      color: $color-transaction-red;
       box-shadow: 6px 6px 8px 5px $main-color-bg-dark;
     }
   }
@@ -347,14 +339,9 @@ header {
   form {
     select,
     input {
-      width: 100%;
-      height: 50px;
-      margin-bottom: 5%;
-      background: $main-color-bg-dark;
-      color: $main-color-white;
-      outline-style: none;
-      border-style: none;
+      @extend%input_style;
       padding: 0 3%;
+      margin-top: 4%;
     }
     input[type='submit'] {
       margin-top: 10%;
@@ -494,7 +481,7 @@ header {
   /* height: 300px; */
   z-index: -1;
   canvas {
-    /* width: 350px; */
+    width: 350px;
     height: 150px;
   }
   .chartText {
