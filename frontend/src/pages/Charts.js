@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Footer from './Footer';
-import Header from './Header';
-import TotalCosts from './TotalCosts';
-import PieChart from './PieChart';
-import Loader from './Loader';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import TotalCosts from '../components/TotalCosts';
+import PieChart from '../components/PieChart';
+import Loader from '../components/Loader';
 import Error from '../components/ModalError';
 
 import { useTotalCosts } from '../hooks/useTotalCosts';

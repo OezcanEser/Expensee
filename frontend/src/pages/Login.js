@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
-import Error from './ModalError';
-import LoginComponent from './LoginComponent';
-import RegisterComponent from './RegisterComponent';
+import Error from '../components/ModalError';
+import LoginComponent from '../components/LoginComponent';
+import RegisterComponent from '../components/RegisterComponent';
 
 const Login = () => {
   const history = useHistory();
