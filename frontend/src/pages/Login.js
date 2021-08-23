@@ -82,6 +82,17 @@ const Login = () => {
     }
   };
 
+  const logoutUser = async () => {
+    try {
+      let { data } = await axios.get('/user/logout');
+      if (data.success) {
+        sessionStorage.clear();
+      }
+    } catch (error) {
+      setError(errorResponseMessage(error));
+    }
+  };
+
   const handleClose = () => {
     setError(null);
   };
@@ -108,7 +119,26 @@ const Login = () => {
     />
   );
 
-  console.log(userData);
+  let userFromStorage = sessionStorage.getItem('user')
+    ? sessionStorage.getItem('user')
+    : null;
+
+  if (userFromStorage) {
+    return (
+      <section className='login'>
+        <h1>Expensee</h1>
+        <div className='RegisterLogin'>
+          <div
+            onClick={() => {
+              logoutUser();
+            }}
+          >
+            LOGOUT
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className='login'>
