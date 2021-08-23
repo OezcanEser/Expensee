@@ -49,7 +49,7 @@ const Charts = () => {
       <main>
         <section className='statistic'>
           <PieChart />
-          {!error && showTotalCosts} }
+          {!error && showTotalCosts}
         </section>
       </main>
       <Footer />
