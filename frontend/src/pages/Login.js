@@ -87,6 +87,7 @@ const Login = () => {
       let { data } = await axios.get('/user/logout');
       if (data.success) {
         sessionStorage.clear();
+        history.push('/');
       }
     } catch (error) {
       setError(errorResponseMessage(error));
