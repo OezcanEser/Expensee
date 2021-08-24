@@ -24,8 +24,6 @@ const PieChart = () => {
     }
   }
 
-  console.log('hello from chart');
-  // {totalCosts && totalCosts.sparen}
   return (
     <div className='chart'>
       <div className='chartText'>
@@ -45,7 +43,6 @@ const PieChart = () => {
                 'rgba(149, 152, 154, 1)',
               ],
               borderWidth: 0,
-              
             },
             {
               data: [1],

@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Error from '../components/ModalError';
+import { headerData } from '../data/headerData';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
 
 const Header = (props) => {
@@ -55,7 +56,14 @@ const Header = (props) => {
             <div className='crossline'></div>
           </div>
           <ul>
-            <li>
+            {headerData.map((item) => {
+              return (
+                <Link to={item.to} onClick={() => setIsOpen(false)}>
+                  {item.name}
+                </Link>
+              );
+            })}
+            {/* <li>
               <Link to='/home' onClick={() => setIsOpen(false)}>
                 {' '}
                 Home
@@ -72,7 +80,7 @@ const Header = (props) => {
                 {' '}
                 Charts
               </Link>
-            </li>
+            </li> */}
             <li>
               <span
                 onClick={() => {
