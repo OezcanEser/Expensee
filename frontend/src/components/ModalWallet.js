@@ -6,13 +6,11 @@ const ModalWallet = (props) => {
     hour: 'numeric',
     minute: 'numeric',
   });
-  //console.log(time)
   let date = new Date(props.data.created_at).toLocaleDateString('de', {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
   });
-  //console.log(date)
 
   return (
     <>
