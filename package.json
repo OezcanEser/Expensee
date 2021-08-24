@@ -2,7 +2,7 @@
   "name": "Expensee",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
     "start": "node backend/index.js",
     "server": "nodemon backend/index.js",
