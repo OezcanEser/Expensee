@@ -6,9 +6,8 @@ const app = express();
 const morgan = require('morgan');
 
 const cookieParser = require('cookie-parser');
-const ErrorHandler = require('./utils/error');
+
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
-console.log(path.join(__dirname, '..', 'frontend', 'build'));
 app.use(express.json());
 // if (process.env.NODE_ENV === 'development') { app.use(morgan('dev')) }
 
