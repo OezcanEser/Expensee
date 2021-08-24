@@ -3,8 +3,8 @@ const path = require('path')
 const express = require('express');
 const app = express();
 
-const morgan = require('morgan');
-if (process.env.NODE_ENV === 'development') { app.use(morgan('dev')) }
+// const morgan = require('morgan');
+// if (process.env.NODE_ENV === 'development') { app.use(morgan('dev')) }
 // const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const ErrorHandler = require('./utils/error');
