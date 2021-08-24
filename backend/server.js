@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const ErrorHandler = require('./utils/error');
-app.use(express.static(path.join(__dirname, "../", "frontend", "build")))
+app.use(express.static(path.join(__dirname, "..", "frontend", "build")))
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
@@ -20,13 +20,16 @@ app.use('/input', require('./routes/inputs'));
 app.use('/balance', require('./routes/balance'));
 
 //if route not exist
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "../", 'frontend', 'build', 'index.html'))
-  // next()
-});
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, "../", 'frontend', 'build', 'index.html'))
+//   // next()
+// });
 
 // if (process.env.NODE_ENV === 'production') {  app.use(express.static(path.join(__dirname, '/frontend/build')))
 //   app.get('*', (req, res) =>    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))  )}
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", 'frontend', 'build', 'index.html'))
+})
 
 //custom error handler
 // app.use((error, req, res, next) => {
