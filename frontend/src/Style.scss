@@ -114,7 +114,7 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
 /* Register Form */
 .RegisterForm {
   margin-top: 4rem;
-  width: 400px;
+  width: 90%;
   input[type='submit'] {
     @extend%button_style;
     &:hover {
@@ -788,7 +788,8 @@ ul {
 @media screen and (min-width: 1024px) {
   .loginBorder {
     padding: 10% 25%;
-    background: $main-color-bg-lighter;
+    background: linear-gradient(160deg, rgba(50,55,124,1) 29%, 
+                                        rgba(35,36,80,1) 72%);
     .login {
       background-color: $main-color-bg;
       background-image: url(./img/waves.png);
