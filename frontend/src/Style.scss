@@ -787,7 +787,7 @@ ul {
 
 @media screen and (min-width: 1024px) {
   .loginBorder {
-    padding: 10% 20%;
+    padding: 10% 25%;
     background: $main-color-bg-lighter;
     .login {
       background-color: $main-color-bg;
@@ -797,12 +797,9 @@ ul {
       background-size: contain;
       border-radius: 20px;
       min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: $main-color-white;
+      box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
       h1 {
-        font-size: 5rem;
+        font-size: 4rem;
         font-weight: 400;
         margin-top: 10%;
       }
