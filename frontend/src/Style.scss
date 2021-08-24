@@ -311,10 +311,6 @@ header {
     .buttonMore {
       @extend%button_style;
     }
-    .buttonMore:disabled {
-      background: $main-color-grey;
-      color: $main-color-bg-dark;
-    }
     .buttonMore:hover {
       color: $color-transaction-red;
       box-shadow: 6px 6px 8px 5px $main-color-bg-dark;
