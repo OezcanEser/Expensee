@@ -148,7 +148,7 @@ const Login = () => {
               setRegister(true);
             }}
           >
-            REGISTER
+            Register
           </div>
           <div
             onClick={() => {
@@ -156,7 +156,7 @@ const Login = () => {
               setRegister(false);
             }}
           >
-            LOGIN
+            Login
           </div>
         </div>
       )}
