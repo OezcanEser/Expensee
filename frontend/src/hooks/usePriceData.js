@@ -16,7 +16,6 @@ export function usePriceData(term, showMore, idToDelete) {
         setPriceData(data.data);
         setDisable(data.endOfLength);
         setUser(data.user);
-        console.log('data from backend: ', data);
       } catch (error) {
         setError(errorResponseMessage(error));
       }
