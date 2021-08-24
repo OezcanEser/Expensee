@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useOnClickOutside } from '../hooks/useOnClickOutside';
 import axios from 'axios';
 import Error from '../components/ModalError';
+import BurgerMenu from './BurgerMenu';
+import XButton from './XButton';
 import { headerData } from '../data/headerData';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
 
@@ -42,45 +45,20 @@ const Header = (props) => {
   return (
     <header>
       <section className='menu'>
-        <div className='headBurger'>
-          <div className='burgerMenu' onClick={() => setIsOpen(!isOpen)}>
-            <div className='line'></div>
-            <div className='line'></div>
-            <div className='line'></div>
-          </div>
-          <h1>{props.title}</h1>
-        </div>
+        <BurgerMenu title={props.title} onClick={() => setIsOpen(!isOpen)} />
         <nav className={isOpen ? 'open' : 'closeNav'} ref={ref}>
-          <div className='cross' onClick={() => setIsOpen(false)}>
-            <div className='crossline'></div>
-            <div className='crossline'></div>
-          </div>
+          <XButton onClick={() => setIsOpen(false)} />
           <ul>
             {headerData.map((item) => {
               return (
-                <Link to={item.to} onClick={() => setIsOpen(false)}>
-                  {item.name}
-                </Link>
+                <li key={Math.random()}>
+                  <Link to={item.to} onClick={() => setIsOpen(false)}>
+                    {item.name}
+                  </Link>
+                </li>
               );
             })}
-            {/* <li>
-              <Link to='/home' onClick={() => setIsOpen(false)}>
-                {' '}
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to='/turnovers' onClick={() => setIsOpen(false)}>
-                {' '}
-                Wallet
-              </Link>
-            </li>
-            <li>
-              <Link to='/charts' onClick={() => setIsOpen(false)}>
-                {' '}
-                Charts
-              </Link>
-            </li> */}
+
             <li>
               <span
                 onClick={() => {
@@ -102,20 +80,3 @@ const Header = (props) => {
 };
 
 export default Header;
-
-function useOnClickOutside(ref, handler) {
-  useEffect(() => {
-    const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      handler(event);
-    };
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
-    return () => {
-      document.removeEventListener('mousedown', listener);
-      document.removeEventListener('touchstart', listener);
-    };
-  }, [ref, handler]);
-}

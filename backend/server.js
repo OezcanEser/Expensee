@@ -1,14 +1,13 @@
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
-const cors = require('cors');
+
 const app = express();
 
 const morgan = require('morgan');
 
 const cookieParser = require('cookie-parser');
 
-app.use(cors());
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
 app.use(express.json());
 // if (process.env.NODE_ENV === 'development') { app.use(morgan('dev')) }
