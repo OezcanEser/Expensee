@@ -90,8 +90,25 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
   }
 }
 
-/* Register Form */
+/* ------- Login --------------- */
+.login {
+  background-image: url(./img/waves.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $main-color-white;
+  h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: 30%;
+  }
+}
 
+/* Register Form */
 .RegisterForm {
   margin-top: 4rem;
   width: 400px;
@@ -103,17 +120,7 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
   }
 }
 
-/* Custom input */
-
-.CustomInput {
-  margin-bottom: 2rem;
-  input {
-    @extend%input_style;
-  }
-}
-
 /* Register Login Button */
-
 .RegisterLogin {
   div {
     @extend%button_style;
@@ -128,6 +135,14 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
   }
   div:first-of-type {
     margin-top: 40%;
+  }
+}
+
+/* Custom input */
+.CustomInput {
+  margin-bottom: 2rem;
+  input {
+    @extend%input_style;
   }
 }
 
@@ -224,23 +239,7 @@ header {
     }
   }
 }
-/* ------- Login --------------- */
-.login {
-  background-image: url(./img/waves.png);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $main-color-white;
-  h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    margin-top: 30%;
-  }
-}
+
 /* -------Home------------------- */
 .overview {
   color: $main-color-white;
@@ -481,7 +480,7 @@ header {
   /* height: 300px; */
   z-index: -1;
   canvas {
-    width: 350px;
+    /* width: 350px; */
     height: 150px;
   }
   .chartText {
@@ -512,15 +511,18 @@ header {
   color: $main-color-white;
   width: 90%;
   margin: 2%;
+  transition: 1s, transform 4s;
+  /* transition-duration: 4s; */
   h3 {
     padding: 5%;
     font-weight: 400;
     font-size: 1.4rem;
+    transition: 4s, transform 4s;
   }
   ul {
     list-style-type: none;
     text-align: left;
-
+    transition: 1s, transform 4s;
     li {
       padding: 5%;
       font-size: 1.2rem;
@@ -529,6 +531,7 @@ header {
       justify-content: space-between;
       background: $main-color-bg-lighter;
       border: 1px solid $main-color-bg;
+      transition: 4s, transform 4s;
     }
   }
 }
@@ -693,5 +696,187 @@ ul {
   }
 }
 }
+}
+}
+
+@media screen and (min-width: 768px) {
+  .login {
+    h1 {
+      margin-top: 15%;
+    }
+  }
+  header {
+    .menu {
+      width: 50%;
+      nav {
+        ul {
+          height: 100vh;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  .overview {
+    
+    h2 {
+      font-size: 2.5rem;
+    }
+    .overviewHead {
+      h3 {
+        font-size: 2rem;
+      }
+      button {
+        font-size: 1.2rem;
+      }
+      button:hover {
+        font-size: 1.5rem;
+      }
+    }
+    ul {
+      li {
+        margin: 1.5% 5%;
+        padding: 3%;
+        article {
+          font-size: 1rem;
+          width: 190px;
+          h4 {
+            font-size: 2rem;
+          }
+        }
+        .price {
+          font-size: 1.7rem;
+        }
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+    .buttonM {
+      margin-right: 5%;
+      margin-left: 5%;
+      .buttonMore {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .chart {
+    height: 250px;
+    width: 350px;
+    .chartText {
+      top: 62%;
+      left: 50%;
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .totalCoast-1,
+  .totalCoast-2,
+  .totalCoast-3,
+  .totalCoast-4 {
+    
+    h3 {
+      font-size: 2rem;
+      padding: 3%;
+    }
+    ul {
+      li {
+        padding: 3%;
+      }
+    }
+  }
+  .footer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 10vh;
+    .menu {
+      .headBurger {
+        position: absolute;
+        top: 10vh;
+        background: $main-color-bg-lighter;
+        h1 {
+          font-size: 2rem;
+          font-weight: 400;
+        }
+      }
+      nav {
+        display: block;
+        position: fixed;
+        width: 100vw;
+        box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
+        .cross {
+          display: none;
+        }
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          height: 10vh;
+          width: 100%;
+          margin: 0;
+          padding: 2% 2%;
+          li {
+            padding-top: 1%;
+            font-size: 1.7rem;
+          }
+        }
+      }
+      .closeNav {
+        left: 0;
+      }
+    }
+    .burgerMenu {
+      display: none;
+    }
+  }
+  .wallet {
+    margin-top: 3%;
+    padding: 5%;
+    color: $main-color-white;
+    background-image: url(./img/waves.png);
+    background-position: bottom right;
+    background-repeat:no-repeat;
+    background-size: 50vw;
+    min-height: 100vh;
+
+    h1 {
+      font-size: 2.5rem;
+      padding: 2% 0;
+      text-align: center;
+    }
+    form {
+      margin: 0 10%;
+    }
+  }
+  .chart {
+    margin-top: 10%;
+    width: 450px;
+    .chartText {
+      top: 80%;
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+  .statistic {
+    display: flex;
+    flex-direction: column;
+    /*  justify-content: center; */
+    align-items: center;
+    margin-bottom: 12vh;
+  }
+  .totalCoast-1,
+.totalCoast-2,
+.totalCoast-3,
+.totalCoast-4 {
+  width: 60%;
+  margin: 2%;
+}
+.totalCoast-1 {
+  margin-top: 25%;
 }
 }

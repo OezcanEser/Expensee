@@ -40,24 +40,20 @@ const Login = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    let dataToSave = {
-      ...userData,
-    };
+
     try {
       if (userData.password !== userData.password2) {
         throw new Error('Password does not match!');
       }
 
-      let { data } = await axios.post('/user/register', dataToSave);
+      let { data } = await axios.post('/user/register', userData);
 
       if (data.user) {
         window.sessionStorage.clear();
-
         window.sessionStorage.setItem('user', JSON.stringify(data.user));
         history.push('/home');
       }
     } catch (error) {
-      console.log(error.response);
       setError(errorResponseMessage(error));
     }
   };
@@ -73,7 +69,6 @@ const Login = () => {
 
       if (data.user) {
         window.sessionStorage.clear();
-
         window.sessionStorage.setItem('user', JSON.stringify(data.user));
         history.push('/home');
       }

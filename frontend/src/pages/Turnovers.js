@@ -6,16 +6,17 @@ import Footer from '../components/Footer';
 import ModalWallet from '../components/ModalWallet';
 import Error from '../components/ModalError';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
+import { optionData, descriptionData } from '../data/turnoversData';
 
-const optionData = [' ', 'Einnahmen', 'Ausgaben', 'Sonstiges'];
-const descriptionData = [
-  'Gehalt',
-  'Lebensmittel',
-  'Shopping',
-  'Wohnung',
-  'Restaurant',
-  'Versicherung',
-];
+// const optionData = [' ', 'Einnahmen', 'Ausgaben', 'Sonstiges'];
+// const descriptionData = [
+//   'Gehalt',
+//   'Lebensmittel',
+//   'Shopping',
+//   'Wohnung',
+//   'Restaurant',
+//   'Versicherung',
+// ];
 
 const Turnovers = () => {
   const [open, setOpen] = useState(false);
