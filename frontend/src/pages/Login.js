@@ -137,9 +137,9 @@ const Login = () => {
   }
 
   return (
+    <div className="loginBorder">
     <section className='login'>
       <h1>Expensee</h1>
-
       {!showForm && (
         <div className='RegisterLogin'>
           <div
@@ -148,7 +148,7 @@ const Login = () => {
               setRegister(true);
             }}
           >
-            REGISTER
+            Register
           </div>
           <div
             onClick={() => {
@@ -156,7 +156,7 @@ const Login = () => {
               setRegister(false);
             }}
           >
-            LOGIN
+            Login
           </div>
         </div>
       )}
@@ -164,6 +164,7 @@ const Login = () => {
       {showForm && loginForm}
       <Error open={error ? true : false} error={error} onClose={handleClose} />
     </section>
+    </div>
   );
 };
 
