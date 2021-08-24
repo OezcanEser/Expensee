@@ -22,6 +22,7 @@ app.use('/balance', require('./routes/balance'));
 //if route not exist
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
+  next()
 });
 
 //custom error handler
