@@ -1,6 +1,7 @@
 import React from 'react';
 import RegisterForm from './RegisterForm';
 import CustomInput from './CustomInput';
+import FormDescription from './FormDescription';
 
 const RegisterComponent = ({
   username,
@@ -41,12 +42,11 @@ const RegisterComponent = ({
           type='password'
         />
       </RegisterForm>
-      <div style={{ marginTop: '10px' }}>
-        Already have an account?{' '}
-        <span style={{ cursor: 'pointer', color: '#efb722' }} onClick={onClick}>
-          Login here
-        </span>
-      </div>
+      <FormDescription
+        text1='Already have an account? '
+        text2='Login here'
+        onClick={onClick}
+      />
     </>
   );
 };
