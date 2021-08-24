@@ -5,6 +5,7 @@ import { errorResponseMessage } from '../utils/errorResponseMessage';
 import Error from '../components/ModalError';
 import LoginComponent from '../components/LoginComponent';
 import RegisterComponent from '../components/RegisterComponent';
+import LogoutButton from '../components/LogoutButton';
 
 const Login = () => {
   const history = useHistory();
@@ -120,50 +121,41 @@ const Login = () => {
     : null;
 
   if (userFromStorage) {
-    return (
-      <section className='login'>
-        <h1>Expensee</h1>
-        <div className='RegisterLogin'>
-          <div
-            onClick={() => {
-              logoutUser();
-            }}
-          >
-            LOGOUT
-          </div>
-        </div>
-      </section>
-    );
+    return <LogoutButton onClick={() => logoutUser()} />;
   }
 
   return (
-    <div className="loginBorder">
-    <section className='login'>
-      <h1>Expensee</h1>
-      {!showForm && (
-        <div className='RegisterLogin'>
-          <div
-            onClick={() => {
-              setShowForm(true);
-              setRegister(true);
-            }}
-          >
-            Register
+    <div className='loginBorder'>
+      <section className='login'>
+        <h1>Expensee</h1>
+        {!showForm && (
+          <div className='RegisterLogin'>
+            <div
+              onClick={() => {
+                setShowForm(true);
+                setRegister(true);
+              }}
+            >
+              Register
+            </div>
+            <div
+              onClick={() => {
+                setShowForm(true);
+                setRegister(false);
+              }}
+            >
+              Login
+            </div>
           </div>
-          <div
-            onClick={() => {
-              setShowForm(true);
-              setRegister(false);
-            }}
-          >
-            Login
-          </div>
-        </div>
-      )}
-      {showForm && registerForm}
-      {showForm && loginForm}
-      <Error open={error ? true : false} error={error} onClose={handleClose} />
-    </section>
+        )}
+        {showForm && registerForm}
+        {showForm && loginForm}
+        <Error
+          open={error ? true : false}
+          error={error}
+          onClose={handleClose}
+        />
+      </section>
     </div>
   );
 };
