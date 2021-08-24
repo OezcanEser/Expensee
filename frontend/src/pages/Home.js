@@ -7,6 +7,7 @@ import Error from '../components/ModalError';
 
 import { usePriceData } from '../hooks/usePriceData';
 import { errorResponseMessage } from '../utils/errorResponseMessage';
+import Price from '../components/Price';
 
 const Home = () => {
   const [showMore, setShowMore] = useState(0);
@@ -39,34 +40,14 @@ const Home = () => {
 
   let showPrices = priceData ? (
     priceData.map((transfer) => (
-      <li key={transfer.id}>
-        <div
-          style={{
-            width: '35px',
-            height: '35px',
-            borderRadius: '50%',
-            backgroundColor:
-              transfer.category === 'Einnahmen' ? '#00FF00' : '#F63535',
-          }}
-        />
-        <article>
-          <h4>{transfer.description}</h4>
-          <p>
-            {new Date(transfer.created_at).toLocaleDateString('de', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-            })}
-          </p>
-        </article>
-        <p className='price'>{transfer.price.toFixed(2)}</p>
-        <img
-          src='./img/delete.png'
-          alt='delete'
-          style={{ height: '25px' }}
-          onClick={() => deleteTransfer(transfer.id)}
-        />
-      </li>
+      <Price
+        key={transfer.id}
+        backgroundColor={
+          transfer.category === 'Einnahmen' ? '#00FF00' : '#F63535'
+        }
+        onClick={() => deleteTransfer(transfer.id)}
+        {...transfer}
+      />
     ))
   ) : (
     <Loader />
