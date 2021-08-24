@@ -21,7 +21,7 @@ app.use('/balance', require('./routes/balance'));
 
 //if route not exist
 app.use((req, res, next) => {
-  return next(new ErrorHandler('Page not found!', 404));
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
 });
 
 //custom error handler
