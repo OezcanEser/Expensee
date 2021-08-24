@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
+const path = require('path')
 const express = require('express');
 const app = express();
 
@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const ErrorHandler = require('./utils/error');
-
+app.use(express.static(path.join(__dirname, "frontend", "build")))
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
