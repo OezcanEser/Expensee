@@ -1,28 +1,43 @@
-import { NavLink } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Footer = () => {
+    const [pathname, setPathname] = useState('/turnovers' || '/home' || '/charts')
+    const location = useLocation();
+
+    useEffect(() => {
+        setPathname(location.pathname);
+    }, [location]);
+    
     return (
         <footer className="footer">
-            {/* <img src="./img/background_nav.png" alt="" /> */}
             <nav>
                 <ul>
                     <li>
-                        <NavLink className="wallet"
-                            activeStyle={{ color: '#EFBC2C' }} to="/turnovers">
-                            <img src="./img/wallet.png" alt="wallet" />
+                        <NavLink className="wallet" to="/turnovers">
+                            {   pathname === '/turnovers' ? 
+                                (<img src="./img/wallet_active.png" alt="wallet" />)
+                                :
+                                (<img src="./img/wallet.png" alt="wallet" />)  
+                            }
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="home"
-                            activeStyle={{ fill: '#EFBC2C'}} to="/home"> 
-                            <img src="./img/home_button.svg" alt="home" />
+                        <NavLink className="home" to="/home">
+                            {   pathname === '/home' ? 
+                                (<img src="./img/home_button_active.png" alt="home" />)
+                                :
+                                (<img src="./img/home_button.png" alt="home" />)  
+                            }
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="charts"
-                            style={{ stroke: '#EFBC2C' }} to="/charts">
-                            <img src="./img/charts.svg" alt="charts" style={{ }}/>
+                        <NavLink className="charts" to="/charts">
+                            {   pathname === '/charts' ? 
+                                (<img src="./img/chart_active.png" alt="charts" />)
+                                :
+                                (<img src="./img/charts.png" alt="charts" />)  
+                            }
                         </NavLink>
                     </li>
                 </ul>

@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import TotalCosts from '../components/TotalCosts';
 import PieChart from '../components/PieChart';
 import Loader from '../components/Loader';
-import Error from '../components/ModalError';
 
 import { useTotalCosts } from '../hooks/useTotalCosts';
 
@@ -16,7 +15,6 @@ const Charts = () => {
     sonstiges: false,
   });
   const [totalCosts, error] = useTotalCosts();
-  let totalCostsError = error;
 
   let showTotalCosts = totalCosts ? (
     Object.keys(totalCosts).map((el, index) => {
@@ -49,7 +47,7 @@ const Charts = () => {
       <main>
         <section className='statistic'>
           <PieChart />
-          {!error && showTotalCosts} }
+          {!error && showTotalCosts}
         </section>
       </main>
       <Footer />
