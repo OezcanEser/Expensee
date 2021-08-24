@@ -91,22 +91,25 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
 }
 
 /* ------- Login --------------- */
-.login {
-  background-image: url(./img/waves.png);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $main-color-white;
-  h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    margin-top: 30%;
+.loginBorder {
+  .login {
+    background-image: url(./img/waves.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $main-color-white;
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      margin-top: 30%;
+    }
   }
 }
+
 
 /* Register Form */
 .RegisterForm {
@@ -507,18 +510,14 @@ header {
   color: $main-color-white;
   width: 90%;
   margin: 2%;
-  transition: 1s, transform 4s;
-  /* transition-duration: 4s; */
   h3 {
     padding: 5%;
     font-weight: 400;
     font-size: 1.4rem;
-    transition: 4s, transform 4s;
   }
   ul {
     list-style-type: none;
     text-align: left;
-    transition: 1s, transform 4s;
     li {
       padding: 5%;
       font-size: 1.2rem;
@@ -527,7 +526,6 @@ header {
       justify-content: space-between;
       background: $main-color-bg-lighter;
       border: 1px solid $main-color-bg;
-      transition: 4s, transform 4s;
     }
   }
 }
@@ -602,8 +600,9 @@ header {
     }
   }
 }
-
+//-----------------------------------------------------------------
 /* ------ media queries------------ */
+//-----------------------------------------------------------------
 
 @media screen and (min-width: 320px) {
     /* -------Footer----------------- */
@@ -787,6 +786,28 @@ ul {
 }
 
 @media screen and (min-width: 1024px) {
+  .loginBorder {
+    padding: 10% 20%;
+    background: $main-color-bg-lighter;
+    .login {
+      background-color: $main-color-bg;
+      background-image: url(./img/waves.png);
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 20px;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $main-color-white;
+      h1 {
+        font-size: 5rem;
+        font-weight: 400;
+        margin-top: 10%;
+      }
+    }
+  }
   header {
     height: 10vh;
     .menu {

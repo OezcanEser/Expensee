@@ -137,9 +137,9 @@ const Login = () => {
   }
 
   return (
+    <div className="loginBorder">
     <section className='login'>
       <h1>Expensee</h1>
-
       {!showForm && (
         <div className='RegisterLogin'>
           <div
@@ -164,6 +164,7 @@ const Login = () => {
       {showForm && loginForm}
       <Error open={error ? true : false} error={error} onClose={handleClose} />
     </section>
+    </div>
   );
 };
 
