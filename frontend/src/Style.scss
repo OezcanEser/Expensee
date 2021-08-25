@@ -286,6 +286,7 @@ header {
       article {
         font-size: 0.8rem;
         width: 150px;
+        text-align: left;
         h4 {
           font-weight: 300;
           font-size: 1rem;
@@ -294,6 +295,7 @@ header {
       .price {
         color: $main-color-yellow;
         font-weight: 400;
+        text-align: right;
       }
       .price::after {
         content: ' €';
