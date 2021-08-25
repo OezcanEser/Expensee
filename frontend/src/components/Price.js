@@ -14,7 +14,7 @@ const Price = ({
           width: '35px',
           height: '35px',
           borderRadius: '50%',
-          backgroundColor: { backgroundColor },
+          backgroundColor: `${backgroundColor}`,
         }}
       />
       <article>
