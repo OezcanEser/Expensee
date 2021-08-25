@@ -48,9 +48,10 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
 
 const showAll = asyncHandler(async (req, res, next) => {
   let userId = req.user.id;
-  let { rows } = await db.query('select * from wallets where user_id= $1', [
-    userId,
-  ]);
+  let { rows } = await db.query(
+    'select * from wallets where user_id= $1 ORDER BY created_at DESC',
+    [userId]
+  );
 
   if (!rows.length) {
     return next(new ErrorHandler('Data not found!', 404));
