@@ -4,8 +4,6 @@ const express = require('express');
 
 const app = express();
 
-const morgan = require('morgan');
-
 const cookieParser = require('cookie-parser');
 
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
@@ -23,7 +21,23 @@ app.get('*', (req, res) => {
 });
 
 // custom error handler
-app.use((error, req, res, next) => {
+app.use("/user", (error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error);
+  }
+  res.status(error.code || 500).json({
+    message: error.message || 'Unknown Error!',
+  });
+});
+app.use("/input", (error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error);
+  }
+  res.status(error.code || 500).json({
+    message: error.message || 'Unknown Error!',
+  });
+});
+app.use("/balance", (error, req, res, next) => {
   if (res.headerSent) {
     return next(error);
   }
