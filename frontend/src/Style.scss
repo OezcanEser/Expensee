@@ -66,9 +66,10 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
     // background-repeat: no-repeat;
     // background-size: contain;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex(initial, center, column);
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
     color: $main-color-white;
     h1 {
       font-size: 3rem;
@@ -165,10 +166,12 @@ header {
           position: absolute;
         }
       }
+
       ul {
-        display: flex;
-        flex-direction: column;
-        align-items: left;
+        @include flex(initial, left, column);
+        // display: flex;
+        // flex-direction: column;
+        // align-items: left;
         height: 91vh;
         margin: 0;
         padding: 30% 0 0 10%;
@@ -222,9 +225,11 @@ header {
     margin-left: 5%;
     font-weight: 400;
   }
+
   .overviewHead {
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between);
+    // display: flex;
+    // justify-content: space-between;
     padding-top: 5%;
     margin: 0 5%;
     h3 {
@@ -247,9 +252,10 @@ header {
   ul {
     padding-bottom: 4vh;
     li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flex(space-between, center);
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
       margin: 1.5% 3%;
       background: $main-color-bg-dark;
       padding: 3%;
@@ -381,10 +387,12 @@ header {
         font-size: 0.8rem;
       }
     }
+
     article {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      @include flex(space-between, initial, row);
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: space-between;
     }
     .price {
       margin-top: 15%;
@@ -471,10 +479,11 @@ header {
 
 /* TotalCost */
 .statistic {
-  display: flex;
-  flex-direction: column;
-  /*  justify-content: center; */
-  align-items: center;
+  @include flex(initial, center, column);
+  // display: flex;
+  // flex-direction: column;
+  // /*  justify-content: center; */
+  // align-items: center;
   margin-bottom: 12vh;
 }
 .totalCoast-1,
@@ -497,8 +506,9 @@ header {
       padding: 5%;
       font-size: 1.2rem;
       font-weight: 300;
-      display: flex;
-      justify-content: space-between;
+      @include flex(space-between);
+      // display: flex;
+      // justify-content: space-between;
       background: $main-color-bg-lighter;
       border: 1px solid $main-color-bg;
     }
@@ -542,9 +552,10 @@ header {
   filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
   nav {
     ul {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+      @include flex(space-evenly, center);
+      // display: flex;
+      // justify-content: space-evenly;
+      // align-items: center;
       width: 100%;
       height: 10vh;
       li {
@@ -806,9 +817,10 @@ header {
           display: none;
         }
         ul {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
+          @include flex(space-around, initial, row);
+          // display: flex;
+          // flex-direction: row;
+          // justify-content: space-around;
           height: 10vh;
           width: 100%;
           margin: 0;
@@ -858,11 +870,13 @@ header {
       }
     }
   }
+
   .statistic {
-    display: flex;
-    flex-direction: column;
-    /*  justify-content: center; */
-    align-items: center;
+    @include flex(initial, center, column);
+    // display: flex;
+    // flex-direction: column;
+    // /*  justify-content: center; */
+    // align-items: center;
     margin-bottom: 12vh;
   }
   .totalCoast-1,
