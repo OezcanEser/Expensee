@@ -39,16 +39,19 @@ const Home = () => {
   };
 
   let showPrices = priceData ? (
-    priceData.map((transfer) => (
-      <Price
-        key={transfer.id}
-        backgroundColor={
-          transfer.category === 'Einnahmen' ? '#00FF00' : '#F63535'
-        }
-        onClick={() => deleteTransfer(transfer.id)}
-        {...transfer}
-      />
-    ))
+    priceData.map((transfer) => {
+      console.log(transfer.category)
+      return (
+        <Price
+          key={transfer.id}
+          backgroundColor={
+            transfer.category == 'Einnahmen' ? '#00FF00' : '#F63535'
+          }
+          onClick={() => deleteTransfer(transfer.id)}
+          {...transfer}
+        />
+      );
+    })
   ) : (
     <Loader />
   );
