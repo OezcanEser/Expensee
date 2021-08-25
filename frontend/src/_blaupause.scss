@@ -29,3 +29,9 @@
   background-repeat: no-repeat;
   background-size: $size;
 }
+
+@mixin flex($justify: initial, $align: initial) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
