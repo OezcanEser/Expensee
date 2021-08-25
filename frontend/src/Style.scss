@@ -36,6 +36,7 @@ $color-transaction-red: #f63535;
   border-style: none;
 }
 
+
 * {
   margin: 0;
   padding: 0;
@@ -108,6 +109,7 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
     }
   }
 }
+
 
 /* Register Form */
 .RegisterForm {
@@ -605,92 +607,93 @@ header {
 //-----------------------------------------------------------------
 
 @media screen and (min-width: 320px) {
-  /* -------Footer----------------- */
-  .footer {
-    nav {
-      ul {
-        li {
-          .wallet {
-            top: 22%;
-            left: 13%;
-            img {
-              width: 25px;
-            }
+    /* -------Footer----------------- */
+.footer {
+  nav {
+    ul {
+      li {
+        .wallet {
+          top: 22%;
+          left: 13%;
+          img {
+            width: 25px;
           }
-          .home {
-            top: 15%;
-            left: 41%;
-          }
-          .charts {
-            top: 37%;
-            left: 72%;
-            img {
-              width: 60px;
-            }
+        }
+        .home {
+          top: 15%;
+          left: 41%;
+        }
+        .charts {
+          top: 37%;
+          left: 72%;
+          img {
+            width: 60px;
           }
         }
       }
     }
   }
+}
 }
 
 @media screen and (min-width: 375px) {
-  /* -------Footer----------------- */
-  .footer {
-    nav {
-      ul {
-        li {
-          .wallet {
-            top: 20%;
-            left: 13%;
-            img {
-              width: 30px;
-            }
+      /* -------Footer----------------- */
+.footer {
+  nav {
+    ul {
+      li {
+        .wallet {
+          top: 20%;
+          left: 13%;
+          img {
+            width: 30px;
           }
-          .home {
-            top: 15%;
-            left: 42%;
-          }
-          .charts {
-            top: 37%;
-            left: 72%;
-            img {
-              width: 70px;
-            }
+        }
+        .home {
+          top: 15%;
+          left: 42%;
+        }
+        .charts {
+          top: 37%;
+          left: 72%;
+          img {
+            width: 70px;
           }
         }
       }
     }
   }
 }
+}
 @media screen and (min-width: 425px) {
+
   /* -------Footer----------------- */
-  .footer {
-    nav {
-      ul {
-        li {
-          .wallet {
-            top: 20%;
-            left: 13%;
-            img {
-              width: 30px;
-            }
-          }
-          .home {
-            top: 15%;
-            left: 43%;
-          }
-          .charts {
-            top: 38%;
-            left: 72%;
-            img {
-              width: 72px;
-            }
-          }
-        }
+.footer {
+nav {
+ul {
+  li {
+    .wallet {
+      top: 20%;
+      left: 13%;
+      img {
+        width: 30px;
+      }
+    }
+    .home {
+      top: 15%;
+      left: 43%;
+    }
+    .charts {
+      top: 38%;
+      left: 72%;
+      img {
+        width: 72px;
       }
     }
   }
+}
+}
+}
 }
 
 @media screen and (min-width: 768px) {
@@ -711,6 +714,7 @@ header {
     }
   }
   .overview {
+    
     h2 {
       font-size: 2.5rem;
     }
@@ -767,6 +771,7 @@ header {
   .totalCoast-2,
   .totalCoast-3,
   .totalCoast-4 {
+    
     h3 {
       font-size: 2rem;
       padding: 3%;
@@ -785,11 +790,8 @@ header {
 @media screen and (min-width: 1024px) {
   .loginBorder {
     padding: 10% 25%;
-    background: linear-gradient(
-      160deg,
-      rgba(50, 55, 124, 1) 29%,
-      rgba(35, 36, 80, 1) 72%
-    );
+    background: linear-gradient(160deg, rgba(50,55,124,1) 29%, 
+                                        rgba(35,36,80,1) 72%);
     .login {
       background-color: $main-color-bg;
       background-image: url(./img/waves.png);
@@ -854,7 +856,7 @@ header {
     color: $main-color-white;
     background-image: url(./img/waves.png);
     background-position: bottom right;
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
     background-size: 50vw;
     min-height: 100vh;
 
