@@ -40,7 +40,6 @@ const Home = () => {
 
   let showPrices = priceData ? (
     priceData.map((transfer) => {
-      console.log(transfer.category)
       return (
         <Price
           key={transfer.id}
