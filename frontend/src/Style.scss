@@ -1,41 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap');
+@import './blaupause';
+@import './variables';
 
 /* font-family: 'Lato', sans-serif; */
-
-$main-color-bg: #2b2d5b;
-$main-color-bg-dark: #232450;
-$main-color-bg-lighter: #32377c;
-$main-color-white: #ffffff;
-$main-color-yellow: #efb722;
-$main-color-grey: #95989a;
-$main-color-lila: #515feb;
-$main-color-green: #33d27b;
-$color-transaction-green: #00ff00;
-$color-transaction-red: #f63535;
-
-%button_style {
-  width: 100%;
-  height: 50px;
-  margin-bottom: 2%;
-  background: $main-color-bg;
-  color: $main-color-white;
-  outline-style: none;
-  border-style: none;
-  box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
-  font-weight: 300;
-  cursor: pointer;
-}
-
-%input_style {
-  width: 100%;
-  height: 50px;
-  padding: 5%;
-  background: $main-color-bg-dark;
-  color: $main-color-white;
-  outline-style: none;
-  border-style: none;
-}
-
 
 * {
   margin: 0;
@@ -167,7 +134,8 @@ header {
       }
     }
     nav {
-      position: relative;
+      position: fixed;
+      width: 70%;
       box-shadow: inset 7px 0 8px -5px $main-color-bg-dark,
         inset -7px 0 8px -5px $main-color-bg-dark;
       transition: left 1s;

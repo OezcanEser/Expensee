@@ -1,0 +1,24 @@
+@import './variables';
+
+%button_style {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 2%;
+    background: $main-color-bg;
+    color: $main-color-white;
+    outline-style: none;
+    border-style: none;
+    box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  
+  %input_style {
+    width: 100%;
+    height: 50px;
+    padding: 5%;
+    background: $main-color-bg-dark;
+    color: $main-color-white;
+    outline-style: none;
+    border-style: none;
+  }
