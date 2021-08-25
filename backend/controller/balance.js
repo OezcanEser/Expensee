@@ -27,7 +27,7 @@ const getUserInputs = asyncHandler(async (req, res, next) => {
   }
 
   let { rows } = await db.query(
-    'select * from wallets where user_id=$1 offset $2 limit 7',
+    'select * from wallets where user_id=$1 ORDER BY created_at DESC offset $2 limit 7',
     [userId, offsetIndex]
   );
 
