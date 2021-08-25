@@ -294,13 +294,6 @@ header {
   }
 }
 
-// @mixin background($url, $position: bottom, $size: contain) {
-//   background-image: url($url);
-//   background-position: $position;
-//   background-repeat: no-repeat;
-//   background-size: $size;
-// }
-
 /* -------Turnovers-------------- */
 .wallet {
   padding: 5%;
@@ -537,13 +530,15 @@ header {
     background: $main-color-grey;
   }
 }
+
 /* -------Footer----------------- */
 .footer {
   position: fixed;
   bottom: 0px;
   height: 12vh;
   width: 100%;
-  background: url(./img/background_nav.png) center/ cover no-repeat;
+  @include background('./img/background_nav.png', center, cover);
+  // background: url(./img/background_nav.png) center/ cover no-repeat;
   filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
   nav {
     ul {
@@ -775,10 +770,11 @@ header {
     );
     .login {
       background-color: $main-color-bg;
-      background-image: url(./img/waves.png);
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: contain;
+      @include background('./img/waves.png');
+      // background-image: url(./img/waves.png);
+      // background-position: bottom;
+      // background-repeat: no-repeat;
+      // background-size: contain;
       border-radius: 20px;
       min-height: 80vh;
       box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
@@ -831,14 +827,16 @@ header {
       display: none;
     }
   }
+
   .wallet {
     margin-top: 3%;
     padding: 5%;
     color: $main-color-white;
-    background-image: url(./img/waves.png);
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: 50vw;
+    @include background('./img/waves.png', bottom right, 50vh);
+    // background-image: url(./img/waves.png);
+    // background-position: bottom right;
+    // background-repeat: no-repeat;
+    // background-size: 50vw;
     min-height: 100vh;
 
     h1 {
