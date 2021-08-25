@@ -350,25 +350,28 @@ header {
     position: relative;
     top: -30px;
   }
+
   .lineCircle {
-    position: absolute;
-    top: 32%;
-    left: -5px;
+    @extend%linecircle;
     transform: rotate(90deg);
-    height: 10px;
-    width: 20px;
-    border-radius: 15px 15px 0 0;
-    background-color: #16172e;
+    // position: absolute;
+    // top: 32%;
+    // left: -5px;
+    // height: 10px;
+    // width: 20px;
+    // border-radius: 15px 15px 0 0;
+    // background-color: #16172e;
   }
   .lineCircle2 {
-    position: absolute;
-    top: 32%;
-    right: -5px;
+    @extend%linecircle;
     transform: rotate(-90deg);
-    height: 10px;
-    width: 20px;
-    border-radius: 15px 15px 0 0;
-    background-color: #16172e;
+    // position: absolute;
+    // top: 32%;
+    // right: -5px;
+    // height: 10px;
+    // width: 20px;
+    // border-radius: 15px 15px 0 0;
+    // background-color: #16172e;
   }
   h3 {
     font-size: 1.5rem;
@@ -425,25 +428,28 @@ header {
     position: relative;
     top: 0px;
   }
+
   .lineCircle {
-    position: absolute;
-    top: 32%;
-    left: -5px;
+    @extend%linecircle;
     transform: rotate(90deg);
-    height: 10px;
-    width: 20px;
-    border-radius: 15px 15px 0 0;
-    background-color: #16172e;
+    // position: absolute;
+    // top: 32%;
+    // left: -5px;
+    // height: 10px;
+    // width: 20px;
+    // border-radius: 15px 15px 0 0;
+    // background-color: #16172e;
   }
   .lineCircle2 {
-    position: absolute;
-    top: 32%;
-    right: -5px;
+    @extend%linecircle;
     transform: rotate(-90deg);
-    height: 10px;
-    width: 20px;
-    border-radius: 15px 15px 0 0;
-    background-color: #16172e;
+    // position: absolute;
+    // top: 32%;
+    // right: -5px;
+    // height: 10px;
+    // width: 20px;
+    // border-radius: 15px 15px 0 0;
+    // background-color: #16172e;
   }
   h3 {
     font-size: 1.5rem;
