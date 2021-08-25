@@ -21,7 +21,7 @@ app.get('*', (req, res) => {
 });
 
 // custom error handler
-app.use("/user", (error, req, res, next) => {
+app.use((error, req, res, next) => {
   if (res.headerSent) {
     return next(error);
   }
@@ -29,22 +29,30 @@ app.use("/user", (error, req, res, next) => {
     message: error.message || 'Unknown Error!',
   });
 });
-app.use("/input", (error, req, res, next) => {
-  if (res.headerSent) {
-    return next(error);
-  }
-  res.status(error.code || 500).json({
-    message: error.message || 'Unknown Error!',
-  });
-});
-app.use("/balance", (error, req, res, next) => {
-  if (res.headerSent) {
-    return next(error);
-  }
-  res.status(error.code || 500).json({
-    message: error.message || 'Unknown Error!',
-  });
-});
+// app.use("/user", (error, req, res, next) => {
+//   if (res.headerSent) {
+//     return next(error);
+//   }
+//   res.status(error.code || 500).json({
+//     message: error.message || 'Unknown Error!',
+//   });
+// });
+// app.use("/input", (error, req, res, next) => {
+//   if (res.headerSent) {
+//     return next(error);
+//   }
+//   res.status(error.code || 500).json({
+//     message: error.message || 'Unknown Error!',
+//   });
+// });
+// app.use("/balance", (error, req, res, next) => {
+//   if (res.headerSent) {
+//     return next(error);
+//   }
+//   res.status(error.code || 500).json({
+//     message: error.message || 'Unknown Error!',
+//   });
+// });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

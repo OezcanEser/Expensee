@@ -121,7 +121,11 @@ const Login = () => {
     : null;
 
   if (userFromStorage) {
-    return <LogoutButton onClick={() => logoutUser()} />;
+    return (
+      <div className='loginBorder'>
+        <LogoutButton onClick={() => logoutUser()} />;
+      </div>
+    );
   }
 
   return (
