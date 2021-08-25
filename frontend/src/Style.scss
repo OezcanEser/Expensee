@@ -57,13 +57,6 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
   }
 }
 
-// @mixin background($url, $position: bottom, $size: contain) {
-//   background-image: url($url);
-//   background-position: $position;
-//   background-repeat: no-repeat;
-//   background-size: $size;
-// }
-
 /* ------- Login --------------- */
 .loginBorder {
   .login {
@@ -140,6 +133,7 @@ header {
         padding: 18px 70px;
       }
     }
+
     nav {
       position: fixed;
       width: 70%;
@@ -147,9 +141,10 @@ header {
         inset -7px 0 8px -5px $main-color-bg-dark;
       transition: left 1s;
       background: $main-color-bg;
-      background-image: url(./img/waves_nav.png);
-      background-position: bottom right;
-      background-repeat: no-repeat;
+      @include background('./img/waves_nav.png', bottom right);
+      // background-image: url(./img/waves_nav.png);
+      // background-position: bottom right;
+      // background-repeat: no-repeat;
       .cross {
         position: absolute;
         right: 30px;
@@ -298,14 +293,23 @@ header {
     }
   }
 }
+
+// @mixin background($url, $position: bottom, $size: contain) {
+//   background-image: url($url);
+//   background-position: $position;
+//   background-repeat: no-repeat;
+//   background-size: $size;
+// }
+
 /* -------Turnovers-------------- */
 .wallet {
   padding: 5%;
   color: $main-color-white;
-  background-image: url(./img/waves.png);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
+  @include background('./img/waves.png');
+  // background-image: url(./img/waves.png);
+  // background-position: bottom;
+  // background-repeat: no-repeat;
+  // background-size: contain;
   min-height: 80vh;
   h1 {
     font-weight: 400;
@@ -681,7 +685,7 @@ header {
     .menu {
       width: 50%;
       nav {
-        width:50%;
+        width: 50%;
         ul {
           height: 100vh;
           font-size: 2rem;
