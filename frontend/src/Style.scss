@@ -199,7 +199,7 @@ header {
         display: flex;
         flex-direction: column;
         align-items: left;
-        height: 90vh;
+        height: 91vh;
         margin: 0;
         padding: 30% 0 0 10%;
         list-style-type: none;
@@ -296,6 +296,7 @@ header {
         color: $main-color-yellow;
         font-weight: 400;
         text-align: right;
+        width: 22%;
       }
       .price::after {
         content: ' €';
