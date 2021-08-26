@@ -20,7 +20,6 @@ const App = () => {
           <ProtectedRoute path='/home' component={Home} />
           <ProtectedRoute path='/charts' component={Charts} />
           <ProtectedRoute path='/turnovers' component={Turnovers} />
-
           <Route path='*' render={() => <Redirect to='/home' />} />
         </Switch>
       </div>

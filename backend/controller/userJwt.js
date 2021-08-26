@@ -65,7 +65,6 @@ const register = asyncHandler(async (req, res, next) => {
 
 const login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
-
   let user = await db.query('select * from users where email =$1', [email]);
 
   if (!user) {
