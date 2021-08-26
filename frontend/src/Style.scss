@@ -61,15 +61,8 @@ $animList: 1 0s, 2 0.2s, 3 0.4s, 4 0.6s, 5 0.8s;
 .loginBorder {
   .login {
     @include background('./img/waves.png');
-    // background-image: url(./img/waves.png);
-    // background-position: bottom;
-    // background-repeat: no-repeat;
-    // background-size: contain;
     min-height: 100vh;
     @include flex(initial, center, column);
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
     color: $main-color-white;
     h1 {
       font-size: 3rem;
@@ -143,9 +136,6 @@ header {
       transition: left 1s;
       background: $main-color-bg;
       @include background('./img/waves_nav.png', bottom right);
-      // background-image: url(./img/waves_nav.png);
-      // background-position: bottom right;
-      // background-repeat: no-repeat;
       .cross {
         position: absolute;
         right: 30px;
@@ -169,9 +159,6 @@ header {
 
       ul {
         @include flex(initial, left, column);
-        // display: flex;
-        // flex-direction: column;
-        // align-items: left;
         height: 91vh;
         margin: 0;
         padding: 30% 0 0 10%;
@@ -228,8 +215,6 @@ header {
 
   .overviewHead {
     @include flex(space-between);
-    // display: flex;
-    // justify-content: space-between;
     padding-top: 5%;
     margin: 0 5%;
     h3 {
@@ -253,9 +238,6 @@ header {
     padding-bottom: 4vh;
     li {
       @include flex(space-between, center);
-      // display: flex;
-      // justify-content: space-between;
-      // align-items: center;
       margin: 1.5% 3%;
       background: $main-color-bg-dark;
       padding: 3%;
@@ -305,10 +287,6 @@ header {
   padding: 5%;
   color: $main-color-white;
   @include background('./img/waves.png');
-  // background-image: url(./img/waves.png);
-  // background-position: bottom;
-  // background-repeat: no-repeat;
-  // background-size: contain;
   min-height: 80vh;
   h1 {
     font-weight: 400;
@@ -354,24 +332,12 @@ header {
   .lineCircle {
     @extend%linecircle;
     transform: rotate(90deg);
-    // position: absolute;
-    // top: 32%;
     left: -5px;
-    // height: 10px;
-    // width: 20px;
-    // border-radius: 15px 15px 0 0;
-    // background-color: #16172e;
   }
   .lineCircle2 {
     @extend%linecircle;
     transform: rotate(-90deg);
-    // position: absolute;
-    // top: 32%;
     right: -5px;
-    // height: 10px;
-    // width: 20px;
-    // border-radius: 15px 15px 0 0;
-    // background-color: #16172e;
   }
   h3 {
     font-size: 1.5rem;
@@ -393,9 +359,6 @@ header {
 
     article {
       @include flex(space-between, initial, row);
-      // display: flex;
-      // flex-direction: row;
-      // justify-content: space-between;
     }
     .price {
       margin-top: 15%;
@@ -432,24 +395,12 @@ header {
   .lineCircle {
     @extend%linecircle;
     transform: rotate(90deg);
-    // position: absolute;
-    // top: 32%;
-    // left: -5px;
-    // height: 10px;
-    // width: 20px;
-    // border-radius: 15px 15px 0 0;
-    // background-color: #16172e;
+    left: -5px;
   }
   .lineCircle2 {
     @extend%linecircle;
     transform: rotate(-90deg);
-    // position: absolute;
-    // top: 32%;
-    // right: -5px;
-    // height: 10px;
-    // width: 20px;
-    // border-radius: 15px 15px 0 0;
-    // background-color: #16172e;
+    right: -5px;
   }
   h3 {
     font-size: 1.5rem;
@@ -465,10 +416,8 @@ header {
 /* ---------Charts-------------------- */
 .chart {
   position: relative;
-  /* height: 300px; */
   z-index: -1;
   canvas {
-    /* width: 350px; */
     height: 150px;
   }
   .chartText {
@@ -486,10 +435,6 @@ header {
 /* TotalCost */
 .statistic {
   @include flex(initial, center, column);
-  // display: flex;
-  // flex-direction: column;
-  // /*  justify-content: center; */
-  // align-items: center;
   margin-bottom: 12vh;
 }
 .totalCoast-1,
@@ -513,8 +458,6 @@ header {
       font-size: 1.2rem;
       font-weight: 300;
       @include flex(space-between);
-      // display: flex;
-      // justify-content: space-between;
       background: $main-color-bg-lighter;
       border: 1px solid $main-color-bg;
     }
@@ -554,14 +497,10 @@ header {
   height: 12vh;
   width: 100%;
   @include background('./img/background_nav.png', center, cover);
-  // background: url(./img/background_nav.png) center/ cover no-repeat;
   filter: drop-shadow(0 -2mm 2mm $main-color-bg-dark);
   nav {
     ul {
       @include flex(space-evenly, center);
-      // display: flex;
-      // justify-content: space-evenly;
-      // align-items: center;
       width: 100%;
       height: 10vh;
       li {
@@ -788,10 +727,6 @@ header {
     .login {
       background-color: $main-color-bg;
       @include background('./img/waves.png');
-      // background-image: url(./img/waves.png);
-      // background-position: bottom;
-      // background-repeat: no-repeat;
-      // background-size: contain;
       border-radius: 20px;
       min-height: 80vh;
       box-shadow: 3px 3px 6px 2px $main-color-bg-dark;
@@ -824,9 +759,6 @@ header {
         }
         ul {
           @include flex(space-around, initial, row);
-          // display: flex;
-          // flex-direction: row;
-          // justify-content: space-around;
           height: 10vh;
           width: 100%;
           margin: 0;
@@ -851,10 +783,6 @@ header {
     padding: 5%;
     color: $main-color-white;
     @include background('./img/waves.png', bottom right, 50vh);
-    // background-image: url(./img/waves.png);
-    // background-position: bottom right;
-    // background-repeat: no-repeat;
-    // background-size: 50vw;
     min-height: 100vh;
 
     h1 {
@@ -879,10 +807,6 @@ header {
 
   .statistic {
     @include flex(initial, center, column);
-    // display: flex;
-    // flex-direction: column;
-    // /*  justify-content: center; */
-    // align-items: center;
     margin-bottom: 12vh;
   }
   .totalCoast-1,
